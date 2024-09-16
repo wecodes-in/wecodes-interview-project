@@ -1,6 +1,6 @@
 export const dummyQuestionsReactJs = [
     { 
-      id: 1, 
+      id: 1001, 
       question: 'What is React?', 
       technology: 'React.js', 
       difficulty: 'Easy', 
@@ -19,7 +19,7 @@ export const dummyQuestionsReactJs = [
   export default App;`
     },
     { 
-      id: 2, 
+      id: 1002, 
       question: 'Explain closures in JavaScript', 
       technology: 'JavaScript', 
       difficulty: 'Medium', 
@@ -35,7 +35,7 @@ export const dummyQuestionsReactJs = [
   console.log(closure(5)); // Output: 15`
     },
     { 
-      id: 3, 
+      id: 1003, 
       question: 'What are React Hooks?', 
       technology: 'React.js', 
       difficulty: 'Medium', 
@@ -57,7 +57,7 @@ export const dummyQuestionsReactJs = [
   export default App;`
     },
     { 
-      id: 4, 
+      id: 1004, 
       question: 'What is a component in React?', 
       technology: 'React.js', 
       difficulty: 'Easy', 
@@ -72,7 +72,7 @@ export const dummyQuestionsReactJs = [
   export default MyComponent;`
     },
     { 
-      id: 5, 
+      id: 1005, 
       question: 'What is the difference between let, const, and var?', 
       technology: 'JavaScript', 
       difficulty: 'Easy', 
@@ -81,7 +81,7 @@ export const dummyQuestionsReactJs = [
       codeSnippet: ''
     },
     { 
-      id: 6, 
+      id: 1006, 
       question: 'What is a Virtual DOM?', 
       technology: 'React.js', 
       difficulty: 'Medium', 
@@ -90,7 +90,7 @@ export const dummyQuestionsReactJs = [
       codeSnippet: ''
     },
     { 
-      id: 7, 
+      id: 1007, 
       question: 'Explain event delegation in JavaScript.', 
       technology: 'JavaScript', 
       difficulty: 'Medium', 
@@ -103,7 +103,7 @@ export const dummyQuestionsReactJs = [
   });`
     },
     { 
-      id: 8, 
+      id: 1008, 
       question: 'What is JSX?', 
       technology: 'React.js', 
       difficulty: 'Easy', 
@@ -122,7 +122,7 @@ export const dummyQuestionsReactJs = [
   export default App;`
     },
     { 
-      id: 9, 
+      id: 1009, 
       question: 'Explain the difference between == and === in JavaScript.', 
       technology: 'JavaScript', 
       difficulty: 'Easy', 
@@ -132,7 +132,7 @@ export const dummyQuestionsReactJs = [
   console.log(5 === '5'); // false`
     },
     { 
-      id: 10, 
+      id: 1010, 
       question: 'What is the purpose of the useEffect hook?', 
       technology: 'React.js', 
       difficulty: 'Medium', 
@@ -159,7 +159,7 @@ export const dummyQuestionsReactJs = [
   export default App;`
     },
     { 
-      id: 100, 
+      id: 1011, 
       question: 'What is the purpose of the useCallback hook?', 
       technology: 'React.js', 
       difficulty: 'Advanced', 
