@@ -11,7 +11,7 @@ const InterviewQuestionsDatabase = () => {
   const [selectedTechnology, setSelectedTechnology] = useState('');
   const [selectedDifficulty, setSelectedDifficulty] = useState('');
   const [selectedQuestion, setSelectedQuestion] = useState(null);
-  const [isFiltersVisible, setIsFiltersVisible] = useState(false);
+  const [isFiltersVisible, setIsFiltersVisible] = useState(true);
   const [showExample, setShowExample] = useState(false);
 
 
