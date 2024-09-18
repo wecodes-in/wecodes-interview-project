@@ -111,7 +111,7 @@ const InterviewQuestionsDatabase = () => {
           </div>
         ) : (
           <div className="flex justify-center items-center h-64">
-          <p className="text-lg text-gray-600">No questions found matching the criteria.</p>
+          <p className="text-lg text-gray-600">No questions found matching the criteria. We will add this shortly.</p>
         </div>
         )}
 
