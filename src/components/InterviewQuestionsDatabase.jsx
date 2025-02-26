@@ -248,9 +248,20 @@
                     }`}>{selectedQuestion.difficulty}</span>
                   </div>
                   <button
+                    className="fixed top-4 right-4 bg-gray-200 text-gray-800 rounded-full p-2 hover:bg-gray-300 focus:outline-none transition-colors duration-300"
+                    onClick={() => {
+                      setSelectedQuestion(null);
+                      setSearchQuery('');
+                    }}>
+                    <FaTimes />
+                  </button>
+
+                  <button
                     className="absolute top-4 right-4 bg-gray-200 text-gray-800 rounded-full p-2 hover:bg-gray-300 focus:outline-none transition-colors duration-300"
-                    onClick={() => setSelectedQuestion(null)}
-                  >
+                    onClick={() => {
+                      setSelectedQuestion(null);
+                      setSearchQuery('');
+                    }}>
                     <FaTimes />
                   </button>
                 </div>
