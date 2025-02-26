@@ -4,6 +4,8 @@
   import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
   import { dummyQuestionsReactJs } from '../Questions/ReactJs';
   import { dummyQuestionsJavaScript } from '../Questions/JavaScript';
+import { dummyQuestionsRedux } from '../Questions/ReduxQuestions';
+import { dummyQuestionsManagement } from '../Questions/Management';
 
   const InterviewQuestionsDatabase = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -15,7 +17,7 @@
     const [activeSection, setActiveSection] = useState('questions');
   
    
-  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript];
+  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement];
   
     const filteredQuestions = dummyQuestions.filter(q =>
       q.question.toLowerCase().includes(searchQuery.toLowerCase()) &&
@@ -114,6 +116,9 @@
                       <option value="">All Technologies</option>
                       <option value="JavaScript">JavaScript</option>
                       <option value="React.js">React.js</option>
+                      <option value="Redux">Redux</option>
+                      
+                      <option value="Management">Management</option>
                     </select>
                     <select
                       className="p-3 border-2 border-indigo-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition-all duration-300 w-full sm:w-1/2"
@@ -260,7 +265,6 @@
                     className="absolute top-4 right-4 bg-gray-200 text-gray-800 rounded-full p-2 hover:bg-gray-300 focus:outline-none transition-colors duration-300"
                     onClick={() => {
                       setSelectedQuestion(null);
-                      setSearchQuery('');
                     }}>
                     <FaTimes />
                   </button>
