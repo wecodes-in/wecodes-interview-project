@@ -12,7 +12,7 @@
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [isFiltersVisible, setIsFiltersVisible] = useState(false);
     const [showExample, setShowExample] = useState(false);
-    const [activeSection, setActiveSection] = useState('questions');
+    const [activeSection, setActiveSection] = useState('question');
   
    
   const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript];
@@ -220,7 +220,7 @@
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
                 <div className="bg-white p-8 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
                   <h2 className="text-2xl font-bold mb-4 text-indigo-800">{selectedQuestion.question}</h2>
-                  <p className="mb-6 text-gray-700 leading-relaxed">{selectedQuestion.answer}</p>
+                  <p className="mb-6 text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedQuestion.answer }} />
                   {selectedQuestion.example && (
                     <div className="mb-6">
                       <button
