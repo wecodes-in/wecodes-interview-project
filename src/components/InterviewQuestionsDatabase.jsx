@@ -8,6 +8,7 @@ import { dummyQuestionsRedux } from '../Questions/ReduxQuestions';
 import { dummyQuestionsManagement } from '../Questions/Management';
 import { dummyQuestionsGit } from '../Questions/Git';
 import { dummyQuestionsHtml } from '../Questions/Html';
+import { dummyQuestionsRTK } from '../Questions/RTK';
 
   const InterviewQuestionsDatabase = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -19,7 +20,7 @@ import { dummyQuestionsHtml } from '../Questions/Html';
     const [activeSection, setActiveSection] = useState('questions');
   
    
-  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml];
+  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml,...dummyQuestionsRTK];
   
     const filteredQuestions = dummyQuestions.filter(q =>
       q.question.toLowerCase().includes(searchQuery.toLowerCase()) &&
@@ -121,6 +122,8 @@ import { dummyQuestionsHtml } from '../Questions/Html';
                       <option value="Redux">Redux</option>
                       <option value="HTML">HTML</option>
                       <option value="Git">Git</option>
+                      <option value="RTK">RTK</option>
+                      
                       
                       <option value="Management">Management</option>
                     </select>

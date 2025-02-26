@@ -358,7 +358,7 @@ const greet = function() {
     technology: "JavaScript",
     difficulty: "Medium",
     answer:
-      "The spread operator creates a shallow copy, meaning nested objects are still passed by reference.",
+      "The spread operator creates a shallow copy of an object or array. It copies the top level but not nested objects. Therefore, nested objects are still passed by reference.",
     example: true,
     codeSnippet: `
       let obj = { name: "Alice", details: { age: 25 } };
