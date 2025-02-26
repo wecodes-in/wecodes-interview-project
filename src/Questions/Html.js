@@ -445,7 +445,136 @@ export const dummyQuestionsHtml = [
         example: true,
         technology: "CSS",
         difficulty: "Easy",
+      },
+      {
+        id: 6042,
+        question: "How to create a Jenkins pipeline for deploying a React app built with Vite to AWS S3?",
+        answer: `
+         <p>
+    This Jenkins pipeline automates the process of:
+</p>
+<ol>
+    <li>Cloning the repository.</li>
+    <li>Installing dependencies.</li>
+    <li>Building the React app using Vite.</li>
+    <li>Deploying the build output to an AWS S3 bucket.</li>
+</ol>
+
+<p>The pipeline is structured with the following stages:</p>
+
+<ol>
+    <li><strong>Clone Repository</strong>: Clones the 'Stagging' branch of the GitHub repository.</li>
+    <li><strong>Install Dependencies</strong>: Runs 'npm install' to install project dependencies.</li>
+    <li><strong>Build React Vite App</strong>: Executes 'npm run build' to generate the production build.</li>
+    <li><strong>Deploy to S3</strong>: Uses AWS CLI to sync the contents of the 'dist' folder with the specified S3 bucket.</li>
+</ol>
+
+<p>The <code>post</code> block provides feedback based on whether the pipeline succeeds or fails.</p>
+
+<p><strong>Example Jenkinsfile:</strong></p>
+
+<pre>
+pipeline {
+    agent any
+
+    environment {
+        S3_BUCKET = "my-react-app-bucket-apex"  
+        DIST_FOLDER = "dist"  // Vite creates 'dist', not 'build'
+    }
+
+    stages {
+        stage('Clone Repository') {
+            steps {
+                git branch: 'Stagging', url: 'https://github.com/wecodes-in/jwt-token.git'  
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Build React Vite App') {
+            steps {
+                sh 'npm run build'
+            }
+        }
+
+        stage('Deploy to S3') {
+            steps {
+                sh '''
+                aws s3 sync $DIST_FOLDER s3://$S3_BUCKET --delete
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "✅ Deployment to S3 Successful!"
+        }
+        failure {
+            echo "❌ Deployment Failed! Check Console Output."
+        }
+    }
+}
+</pre>
+
+<p>The pipeline ensures smooth CI/CD deployment of the React app to S3.</p>
+ `,
+        codeSnippet: `
+          pipeline {
+              agent any
+      
+              environment {
+                  S3_BUCKET = "my-react-app-bucket-apex"  
+                  DIST_FOLDER = "dist"
+              }
+      
+              stages {
+                  stage('Clone Repository') {
+                      steps {
+                          git branch: 'Stagging', url: 'https://github.com/wecodes-in/jwt-token.git'
+                      }
+                  }
+      
+                  stage('Install Dependencies') {
+                      steps {
+                          sh 'npm install'
+                      }
+                  }
+      
+                  stage('Build React Vite App') {
+                      steps {
+                          sh 'npm run build'
+                      }
+                  }
+      
+                  stage('Deploy to S3') {
+                      steps {
+                          sh '''
+                          aws s3 sync $DIST_FOLDER s3://$S3_BUCKET --delete
+                          '''
+                      }
+                  }
+              }
+      
+              post {
+                  success {
+                      echo "✅ Deployment to S3 Successful!"
+                  }
+                  failure {
+                      echo "❌ Deployment Failed! Check Console Output."
+                  }
+              }
+          }
+        `,
+        example: true,
+        technology: "CI/CD, Jenkins",
+        difficulty: "Easy"
       }
+      
       
   ];
 

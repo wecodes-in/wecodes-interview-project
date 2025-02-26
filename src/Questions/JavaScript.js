@@ -111,26 +111,7 @@ fetchData((message) => {
     example: false,
     codeSnippet: "",
   },
-  {
-    id: 9,
-    question: "What is a promise in JavaScript?",
-    technology: "JavaScript",
-    difficulty: "Medium",
-    answer:
-      "A promise is an object representing the eventual completion or failure of an asynchronous operation. It can be in one of three states: pending, fulfilled, or rejected.",
-    example: true,
-    codeSnippet: `const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => {
-    resolve('Promise fulfilled');
-  }, 1000);
-});
-
-myPromise.then(result => {
-  console.log(result); // Output: Promise fulfilled
-}).catch(error => {
-  console.log(error);
-});`,
-  },
+ 
   {
     id: 10,
     question: "What is event delegation in JavaScript?",
@@ -188,24 +169,7 @@ console.log('End');
 // Output: Start, End, Timeout`,
   },
 
-  {
-    id: 13,
-    question: "Explain the event loop in JavaScript.",
-    technology: "JavaScript",
-    difficulty: "Advanced",
-    answer:
-      "The event loop is responsible for managing asynchronous callbacks in JavaScript. It continuously checks the call stack to see if there are any functions that need to be run. If the stack is empty, it checks the message queue for pending events and pushes them onto the stack for execution.",
-    example: true,
-    codeSnippet: `console.log('Start');
 
-setTimeout(() => {
-  console.log('Timeout');
-}, 0);
-
-console.log('End');
-
-// Output: Start, End, Timeout`,
-  },
 
   {
     id: 14,
@@ -436,27 +400,31 @@ const greet = function() {
   {
     id: 27,
     question: "What is the event loop in JavaScript, and how does it work?",
+    answer:
+      "<p>The <strong>event loop</strong> in JavaScript is a mechanism that allows JavaScript to perform non-blocking I/O operations, despite being single-threaded. It works by continuously monitoring the message queue and executing the tasks in it, one by one. The event loop enables asynchronous behavior by allowing JavaScript to handle multiple operations (like I/O tasks) while still keeping the main thread available for other tasks.</p>" +
+      "<p>Here's how it works:</p>" +
+      "<ul>" +
+      "<li><strong>Call Stack:</strong> The call stack holds the functions that are currently being executed. When a function is called, it's added to the call stack. When the function finishes, it is removed from the call stack.</li>" +
+      "<li><strong>Message Queue:</strong> The message queue contains messages (or events) that need to be processed. These messages correspond to events like user interactions, I/O tasks, and timers. Once the call stack is empty, the event loop processes the messages from the queue.</li>" +
+      "<li><strong>Event Loop:</strong> The event loop continuously checks if the call stack is empty. If it is, it takes the first message from the queue and pushes the corresponding callback function onto the stack for execution.</li>" +
+      "</ul>" +
+      "<p>For example, if a function contains a timer (e.g., setTimeout) or an I/O operation, the event loop will allow the JavaScript engine to handle other tasks while waiting for the timer or I/O operation to finish. Once the timer completes, the associated callback is pushed to the call stack for execution.</p>" +
+      "<p><strong>Example:</strong></p>" +
+      "<pre><code>console.log('Start');\n\nsetTimeout(() => {\n  console.log('Inside timeout');\n}, 1000);\n\nconsole.log('End');</code></pre>" +
+      "<p>In the above example:</p>" +
+      "<ul>" +
+      "<li>The first <code>console.log('Start');</code> is executed and printed.</li>" +
+      "<li>The <code>setTimeout()</code> function schedules the callback to be executed after 1000 milliseconds and continues to the next statement.</li>" +
+      "<li>The second <code>console.log('End');</code> is executed and printed immediately after 'Start'.</li>" +
+      "<li>After 1000 milliseconds, the callback is placed in the message queue, and once the call stack is empty, the event loop processes it, printing 'Inside timeout'.</li>" +
+      "</ul>",
+    codeSnippet:
+      "<pre><code>console.log('Start');\n\nsetTimeout(() => {\n  console.log('Inside timeout');\n}, 1000);\n\nconsole.log('End');</code></pre>",
+    example: true,
     technology: "JavaScript",
-    difficulty: "Advanced",
-    answer: `
-      The event loop is a mechanism that handles asynchronous events in JavaScript. It continuously checks the call stack and the callback queue. When the call stack is empty, it pushes the first event from the callback queue to the call stack for execution. This allows JavaScript to be non-blocking and single-threaded while handling asynchronous operations.
-    `,
-    example: false,
-    codeSnippet: `
-      console.log('Start');
-
-      setTimeout(() => {
-        console.log('SetTimeout callback');
-      }, 0);
-
-      console.log('End');
-
-      // Output:
-      // Start
-      // End
-      // SetTimeout callback
-    `,
+    difficulty: "Medium"
   },
+  
   {
     id: 28,
     question:
@@ -489,60 +457,63 @@ const greet = function() {
   {
     id: 29,
     question: "What are promises in JavaScript, and how do they work?",
-    technology: "JavaScript",
-    difficulty: "Advanced",
-    answer: `
-      Promises are objects that represent the eventual completion (or failure) of an asynchronous operation. A promise can be in one of three states:
-      - **Pending**: The initial state, neither fulfilled nor rejected.
-      - **Fulfilled**: The operation completed successfully.
-      - **Rejected**: The operation failed.
-      Promises allow you to chain asynchronous tasks and handle them more elegantly using \`then\`, \`catch\`, and \`finally\`.
-    `,
+    answer:
+      "<p>A <strong>Promise</strong> in JavaScript is an object that represents the eventual completion or failure of an asynchronous operation. It allows you to handle asynchronous operations in a more manageable and readable way than using traditional callbacks. A promise can be in one of three states:</p>" +
+      "<ul>" +
+      "<li><strong>Pending:</strong> The initial state, before the operation completes or fails.</li>" +
+      "<li><strong>Fulfilled:</strong> The operation completed successfully.</li>" +
+      "<li><strong>Rejected:</strong> The operation failed.</li>" +
+      "</ul>" +
+      "<p>Promises have a <code>then()</code> method to handle the success result and a <code>catch()</code> method to handle the error if the promise is rejected.</p>" +
+      "<p><strong>How do Promises work?</strong></p>" +
+      "<p>A promise is created using the <code>new Promise()</code> constructor. Inside the constructor, you pass an executor function, which takes two arguments: <code>resolve</code> and <code>reject</code>. When the asynchronous operation is successful, you call <code>resolve()</code>, and when it fails, you call <code>reject()</code>.</p>" +
+      "<p><strong>Example:</strong></p>" +
+      "<pre><code>const myPromise = new Promise((resolve, reject) => {\n" +
+      "  let success = true;\n" +
+      "  if (success) {\n" +
+      "    resolve('The operation was successful!');\n" +
+      "  } else {\n" +
+      "    reject('The operation failed.');\n" +
+      "  }\n" +
+      "});\n\n" +
+      "myPromise\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // This will log 'The operation was successful!'\n" +
+      "  })\n" +
+      "  .catch(error => {\n" +
+      "    console.log(error); // This will log 'The operation failed.'\n" +
+      "  });\n" +
+      "</code></pre>" +
+      "<p>In the example above:</p>" +
+      "<ul>" +
+      "<li>The promise is created with an executor function that simulates either a successful or failed operation.</li>" +
+      "<li>If <code>resolve()</code> is called, the promise is fulfilled, and the <code>then()</code> method is executed with the success result.</li>" +
+      "<li>If <code>reject()</code> is called, the promise is rejected, and the <code>catch()</code> method handles the error.</li>" +
+      "</ul>" +
+      "<p>Promises allow for better handling of asynchronous code by chaining operations and providing cleaner error handling than traditional callback functions.</p>",
+    codeSnippet:
+      "<pre><code>const myPromise = new Promise((resolve, reject) => {\n" +
+      "  let success = true;\n" +
+      "  if (success) {\n" +
+      "    resolve('The operation was successful!');\n" +
+      "  } else {\n" +
+      "    reject('The operation failed.');\n" +
+      "  }\n" +
+      "});\n\n" +
+      "myPromise\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // This will log 'The operation was successful!'\n" +
+      "  })\n" +
+      "  .catch(error => {\n" +
+      "    console.log(error); // This will log 'The operation failed.'\n" +
+      "  });\n" +
+      "</code></pre>",
     example: true,
-    codeSnippet: `
-      const promise = new Promise((resolve, reject) => {
-        const success = true;
-        if (success) {
-          resolve('Promise fulfilled');
-        } else {
-          reject('Promise rejected');
-        }
-      });
-
-      promise
-        .then(result => console.log(result))
-        .catch(error => console.error(error));
-
-      // Output: Promise fulfilled
-    `,
-  },
-  {
-    id: 30,
-    question:
-      "What is async/await, and how does it simplify working with promises?",
     technology: "JavaScript",
-    difficulty: "Advanced",
-    answer: `
-      \`async/await\` is a syntactic sugar built on top of promises, making asynchronous code look and behave more like synchronous code. \`async\` functions return a promise, and \`await\` pauses the execution of the function until the promise resolves or rejects. This simplifies the chaining and handling of promises.
-    `,
-    example: true,
-    codeSnippet: `
-      function getData() {
-        return new Promise((resolve) => {
-          setTimeout(() => resolve('Data received'), 1000);
-        });
-      }
+    difficulty: "Medium"
+  }
+  ,
 
-      async function fetchData() {
-        const data = await getData();
-        console.log(data);
-      }
-
-      fetchData();
-
-      // Output (after 1 second): Data received
-    `,
-  },
   {
     id: 31,
     question: "What is the difference between `==` and `===` in JavaScript?",
@@ -1054,17 +1025,7 @@ const greet = function() {
     codeSnippet:
       "setTimeout(() => console.log('Executed once'), 1000); setInterval(() => console.log('Executed repeatedly'), 1000);",
   },
-  {
-    id: 67,
-    question: "What is the event loop in JavaScript?",
-    technology: "JavaScript",
-    difficulty: "Advanced",
-    answer:
-      "The event loop is a mechanism in JavaScript that handles asynchronous operations by continuously checking the call stack and the callback queue, ensuring non-blocking execution.",
-    example: true,
-    codeSnippet:
-      "console.log('Start');\nsetTimeout(() => console.log('Callback'), 0);\nconsole.log('End');",
-  },
+
   {
     id:68,
     question: "What is the difference between a shallow copy and a deep copy of an array in JavaScript?",
@@ -1324,36 +1285,8 @@ const numbers = [1, 2, 3];
 const [first, second] = numbers;
 console.log(first, second); // 1, 2"`,
   },
-  {
-    id: 82,
-    question: "How do promises work in JavaScript?",
-    technology: "JavaScript",
-    difficulty: "Medium",
-    answer:
-      "Promises represent asynchronous operations and can be in one of three states: pending, fulfilled, or rejected. They provide .then() and .catch() methods for handling success and failure.",
-    example: true,
-    codeSnippet: `const myPromise = new Promise((resolve, reject) => {
-  setTimeout(() => resolve('Success!'), 1000);
-});
-myPromise.then(result => console.log(result)); // 'Success!' after 1 second"`,
-  },
-  {
-    id: 83,
-    question: "What are async and await in JavaScript?",
-    technology: "JavaScript",
-    difficulty: "Medium",
-    answer:
-      "async and await are syntax features that simplify handling asynchronous code, making it look more like synchronous code.",
-    example: true,
-    codeSnippet: `async function fetchData() {
-  return new Promise(resolve => setTimeout(() => resolve('Data'), 1000));
-}
-async function getData() {
-  const data = await fetchData();
-  console.log(data); // 'Data' after 1 second
-}
-getData();"`,
-  },
+ 
+
   {
     id: 84,
     question: "What is the purpose of the Symbol type in JavaScript?",
@@ -1904,21 +1837,7 @@ delete obj2.age; // Not allowed`,
       fetchData(console.log);
     `,
   },
-  {
-    id: 9122,
-    question: "How does the JavaScript event loop work?",
-    technology: "JavaScript",
-    difficulty: "Advanced",
-    answer:
-      "The event loop continuously checks the call stack and the task queue. If the call stack is empty, it picks tasks from the queue and executes them.",
-    example: true,
-    codeSnippet: `
-      console.log('Start');
-      setTimeout(() => console.log('Timeout'), 0);
-      console.log('End');
-      // Output: Start, End, Timeout
-    `,
-  },
+
   {
     id: 9123,
     question: "What is object-oriented programming in JavaScript?",
@@ -1963,51 +1882,158 @@ delete obj2.age; // Not allowed`,
       myPet.speak(); // Output: Dog barks
     `,
   },
-  {
-    id: 123,
-    question: "What is a callback function?",
-    technology: "JavaScript",
-    difficulty: "Easy",
-    answer:
-      "A callback function is a function that is passed as an argument to another function and executed later. It is commonly used for handling asynchronous operations.",
-    example: true,
-    codeSnippet: `
-      function greet(name, callback) {
-        console.log('Hello, ' + name);
-        callback();
-      }
-      greet('Alice', () => console.log('Callback executed!'));
-    `,
-  },
+
   {
     id: 124,
     question: "What are promise chaining and error handling in promises?",
-    technology: "JavaScript",
-    difficulty: "Medium",
     answer:
-      "Promise chaining allows executing multiple asynchronous operations sequentially using 'then'. Error handling in promises is done using 'catch' to handle rejections.",
+      "<p><strong>Promise Chaining</strong> refers to the ability to chain multiple <code>then()</code> methods together, where each <code>then()</code> returns a new promise. This allows for executing a series of asynchronous operations one after another, in sequence, while ensuring that each operation waits for the previous one to complete. When you return a promise from a <code>then()</code> handler, the next handler waits for it to be resolved or rejected.</p>" +
+      "<p><strong>Error Handling in Promises</strong> allows you to catch any errors that occur during the execution of a promise chain. This is typically done with the <code>catch()</code> method. If an error occurs in any <code>then()</code> method, it will propagate through the chain until it reaches a <code>catch()</code> method that handles the error.</p>" +
+      "<p><strong>How Promise Chaining Works:</strong></p>" +
+      "<p>Each <code>then()</code> method returns a new promise, which allows for subsequent operations to be chained. The result from one <code>then()</code> can be passed to the next one in the chain. If a promise in the chain is rejected, it will skip all remaining <code>then()</code> handlers and jump to the nearest <code>catch()</code> for error handling.</p>" +
+      "<p><strong>Example of Promise Chaining and Error Handling:</strong></p>" +
+      "<pre><code>const promise1 = new Promise((resolve, reject) => {\n" +
+      "  let success = true;\n" +
+      "  if (success) {\n" +
+      "    resolve('Step 1 complete');\n" +
+      "  } else {\n" +
+      "    reject('Step 1 failed');\n" +
+      "  }\n" +
+      "});\n\n" +
+      "promise1\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 1 complete'\n" +
+      "    return 'Step 2 complete'; // Return value for next .then()\n" +
+      "  })\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 2 complete'\n" +
+      "    return 'Step 3 complete';\n" +
+      "  })\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 3 complete'\n" +
+      "  })\n" +
+      "  .catch(error => {\n" +
+      "    console.log(error); // Catch and handle errors here\n" +
+      "  });\n" +
+      "</code></pre>" +
+      "<p>In this example:</p>" +
+      "<ul>" +
+      "<li>The promise starts by resolving or rejecting at Step 1.</li>" +
+      "<li>If the promise resolves, the next <code>then()</code> handler gets executed, passing the result to the next handler in the chain.</li>" +
+      "<li>If an error occurs (e.g., a rejected promise), the <code>catch()</code> method catches the error and handles it.</li>" +
+      "</ul>" +
+      "<p><strong>Handling Errors:</strong></p>" +
+      "<p>Errors can be caught in two ways:</p>" +
+      "<ul>" +
+      "<li>At the end of the promise chain with a single <code>catch()</code> handler that will handle any errors that occur in any of the <code>then()</code> methods.</li>" +
+      "<li>Inside individual <code>then()</code> handlers by returning a rejected promise or throwing an error.</li>" +
+      "</ul>" +
+      "<p>Promise chaining ensures that the operations are performed sequentially, and error handling makes sure that any issues in the process are managed appropriately.</p>",
+    codeSnippet:
+      "<pre><code>const promise1 = new Promise((resolve, reject) => {\n" +
+      "  let success = true;\n" +
+      "  if (success) {\n" +
+      "    resolve('Step 1 complete');\n" +
+      "  } else {\n" +
+      "    reject('Step 1 failed');\n" +
+      "  }\n" +
+      "});\n\n" +
+      "promise1\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 1 complete'\n" +
+      "    return 'Step 2 complete';\n" +
+      "  })\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 2 complete'\n" +
+      "    return 'Step 3 complete';\n" +
+      "  })\n" +
+      "  .then(result => {\n" +
+      "    console.log(result); // 'Step 3 complete'\n" +
+      "  })\n" +
+      "  .catch(error => {\n" +
+      "    console.log(error); // Catch and handle errors here\n" +
+      "  });\n" +
+      "</code></pre>",
     example: true,
-    codeSnippet: `
-      fetch('https://api.example.com/data')
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error:', error));
-    `,
-  },
+    technology: "JavaScript",
+    difficulty: "Medium"
+  }
+  ,
+
   {
     id: 125,
     question: "How does Promise.all(), Promise.any(), Promise.race() work?",
-    technology: "JavaScript",
-    difficulty: "Advanced",
     answer:
-      "Promise.all() waits for all promises to resolve, Promise.any() resolves when any one promise resolves, and Promise.race() resolves when the first promise resolves or rejects.",
+      "<p><strong>Promise.all()</strong> takes an array (or iterable) of promises and returns a single promise. This returned promise resolves when all promises in the array have resolved, or it rejects as soon as any of the promises in the array rejects. It resolves with an array of results in the same order as the promises were passed in, regardless of the order in which they resolve.</p>" +
+      "<p><strong>Promise.any()</strong> also takes an array (or iterable) of promises, but it resolves as soon as any one of the promises resolves successfully. If all the promises are rejected, it will return an error. It only resolves with the first successful resolution, and if no promises resolve, it will reject.</p>" +
+      "<p><strong>Promise.race()</strong> takes an array (or iterable) of promises and returns a single promise that resolves or rejects as soon as the first promise resolves or rejects. Essentially, it races the promises, and whichever one settles first determines the outcome.</p>" +
+      "<p><strong>Example:</strong></p>" +
+      "<pre><code>// Promise.all - All promises must resolve\n" +
+      "const promiseAll = Promise.all([\n" +
+      "  Promise.resolve('Success 1'),\n" +
+      "  Promise.resolve('Success 2'),\n" +
+      "  Promise.resolve('Success 3')\n" +
+      "]).then(results => {\n" +
+      "  console.log(results); // ['Success 1', 'Success 2', 'Success 3']\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n\n" +
+      "// Promise.any - Resolves as soon as one promise resolves\n" +
+      "const promiseAny = Promise.any([\n" +
+      "  Promise.reject('Error 1'),\n" +
+      "  Promise.resolve('Success 2'),\n" +
+      "  Promise.reject('Error 3')\n" +
+      "]).then(result => {\n" +
+      "  console.log(result); // 'Success 2'\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n\n" +
+      "// Promise.race - Resolves with the first settled promise\n" +
+      "const promiseRace = Promise.race([\n" +
+      "  new Promise(resolve => setTimeout(resolve, 100, 'First')), \n" +
+      "  new Promise(resolve => setTimeout(resolve, 50, 'Second'))\n" +
+      "]).then(result => {\n" +
+      "  console.log(result); // 'Second'\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n" +
+      "</code></pre>",
+    codeSnippet:
+      "<pre><code>// Promise.all - All promises must resolve\n" +
+      "const promiseAll = Promise.all([\n" +
+      "  Promise.resolve('Success 1'),\n" +
+      "  Promise.resolve('Success 2'),\n" +
+      "  Promise.resolve('Success 3')\n" +
+      "]).then(results => {\n" +
+      "  console.log(results); // ['Success 1', 'Success 2', 'Success 3']\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n\n" +
+      "// Promise.any - Resolves as soon as one promise resolves\n" +
+      "const promiseAny = Promise.any([\n" +
+      "  Promise.reject('Error 1'),\n" +
+      "  Promise.resolve('Success 2'),\n" +
+      "  Promise.reject('Error 3')\n" +
+      "]).then(result => {\n" +
+      "  console.log(result); // 'Success 2'\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n\n" +
+      "// Promise.race - Resolves with the first settled promise\n" +
+      "const promiseRace = Promise.race([\n" +
+      "  new Promise(resolve => setTimeout(resolve, 100, 'First')), \n" +
+      "  new Promise(resolve => setTimeout(resolve, 50, 'Second'))\n" +
+      "]).then(result => {\n" +
+      "  console.log(result); // 'Second'\n" +
+      "}).catch(error => {\n" +
+      "  console.log(error);\n" +
+      "});\n" +
+      "</code></pre>",
     example: true,
-    codeSnippet: `
-      Promise.all([fetch(url1), fetch(url2)])
-        .then(responses => console.log('All resolved'))
-        .catch(error => console.log('One failed'));
-    `,
-  },
+    technology: "JavaScript",
+    difficulty: "Medium"
+  }
+    ,
   {
     id: 126,
     question: "What is an async function?",
@@ -2025,23 +2051,7 @@ delete obj2.age; // Not allowed`,
       fetchData();
     `,
   },
-  {
-    id: 127,
-    question: "How does await work inside async functions?",
-    technology: "JavaScript",
-    difficulty: "Medium",
-    answer:
-      "The 'await' keyword pauses the execution of an async function until a promise is resolved, making asynchronous code easier to read and write.",
-    example: true,
-    codeSnippet: `
-      async function fetchData() {
-        let response = await fetch('https://api.example.com');
-        let data = await response.json();
-        console.log(data);
-      }
-      fetchData();
-    `,
-  },
+ 
   {
     id: 128,
     question: "How do you handle errors in async/await?",
@@ -2422,4 +2432,27 @@ debugger;
 console.log('Debugging JavaScript');
 `,
   },
+  {
+    id: 311,
+    question: "What is Async/Await?",
+    answer:
+   ` <b>sync keyword:</b> Used to declare a function as asynchronous.
+This function automatically returns a Promise.
+<p><b> ⁠await keyword:</b> Pauses the execution of an async function until the Promise is resolved or rejected. It makes asynchronous code look and behave like synchronous code.`,
+    codeSnippet:
+      "<pre><code>async function fetchData() {\n" +
+      "  try {\n" +
+      "    let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');\n" +
+      "    let data = await response.json();\n" +
+      "    console.log(data);\n" +
+      "  } catch (error) {\n" +
+      "    console.error('Error:', error);\n" +
+      "  }\n" +
+      "}\n" +
+      "fetchData();</code></pre>",
+    example: true,
+    technology: "JavaScript",
+    difficulty: "Medium"
+  }
+  
 ];
