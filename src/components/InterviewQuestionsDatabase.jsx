@@ -12,7 +12,7 @@
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [isFiltersVisible, setIsFiltersVisible] = useState(false);
     const [showExample, setShowExample] = useState(false);
-    const [activeSection, setActiveSection] = useState('question');
+    const [activeSection, setActiveSection] = useState('questions');
   
    
   const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript];
