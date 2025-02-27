@@ -2562,6 +2562,77 @@ This function automatically returns a Promise.
     example: true,
     technology: "JavaScript",
     difficulty: "Medium"
-  }
+  },
+
+    {
+      id: 312,
+      topic: "Axios vs Fetch",
+      technology: "JavaScript",
+      difficulty: "Medium",
+      question: "What are the differences between Axios and Fetch?",
+      answer: `
+        <p>Both <strong>Axios</strong> and <strong>Fetch</strong> are used to make HTTP requests in JavaScript, but they have key differences:</p>
+        <table border="1">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Axios</th>
+              <th>Fetch</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Ease of Use</td>
+              <td>Automatically transforms JSON responses</td>
+              <td>Requires response.json() to parse JSON</td>
+            </tr>
+            <tr>
+              <td>Error Handling</td>
+              <td>Throws errors for network failures and HTTP errors (like 404, 500)</td>
+              <td>Only rejects on network failures (does not reject on 404, 500)</td>
+            </tr>
+            <tr>
+              <td>Request Cancellation</td>
+              <td>Supports request cancellation using AbortController or CancelToken</td>
+              <td>Supports AbortController but requires manual setup</td>
+            </tr>
+            <tr>
+              <td>Timeout Handling</td>
+              <td>Supports request timeouts</td>
+              <td>No built-in timeout handling (needs manual setup)</td>
+            </tr>
+            <tr>
+              <td>Request/Response Interceptors</td>
+              <td>Provides built-in request and response interceptors</td>
+              <td>No built-in support for interceptors</td>
+            </tr>
+            <tr>
+              <td>Default Headers</td>
+              <td>Automatically sets Content-Type: application/json for POST requests</td>
+              <td>Requires manual header setting</td>
+            </tr>
+            <tr>
+              <td>Automatic Transformations</td>
+              <td>Automatically transforms JSON responses</td>
+              <td>Requires manual transformation using .json()</td>
+            </tr>
+          </tbody>
+        </table>
+      `,
+      example: true,
+      codeSnippet: `
+        // Axios Example
+        axios.get('https://jsonplaceholder.typicode.com/posts')
+          .then(response => console.log(response.data))
+          .catch(error => console.error(error));
+  
+        // Fetch Example
+        fetch('https://jsonplaceholder.typicode.com/posts')
+          .then(response => response.json())
+          .then(data => console.log(data))
+          .catch(error => console.error(error));
+      `
+    }
+    
   
 ];

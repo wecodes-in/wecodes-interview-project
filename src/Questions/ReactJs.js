@@ -3189,10 +3189,79 @@ export const dummyQuestionsReactJs = [
     export default ScrollComponent;
   `,
 },
+  {
+    id: 1073,
+    topic: "File Upload in React.js",
+    technology: "React.js",
+    difficulty: "Medium",
+    question: "How do you upload a file in React.js using Axios?",
+    answer: `
+      <p>To upload a file in React.js, you can use the <strong>FormData</strong> API and send it to the backend using <strong>Axios</strong>. </p>
+      <p>Steps:</p>
+      <ul>
+        <li>Use <code>&lt;input type="file"&gt;</code> to select a file.</li>
+        <li>Store the selected file in a React state variable.</li>
+        <li>Use <strong>FormData</strong> to append the file.</li>
+        <li>Send a POST request to the server with <code>multipart/form-data</code> headers.</li>
+      </ul>
+    `,
+    example: true,
+    codeSnippet: `
+      import React, { useState } from "react";
+      import axios from "axios";
 
+      const FileUpload = () => {
+        const [file, setFile] = useState(null);
+        const [uploading, setUploading] = useState(false);
+        const [message, setMessage] = useState("");
 
+        // Handle file selection
+        const handleFileChange = (event) => {
+          setFile(event.target.files[0]);
+        };
 
+        // Handle file upload
+        const handleUpload = async () => {
+          if (!file) {
+            setMessage("Please select a file first.");
+            return;
+          }
 
+          const formData = new FormData();
+          formData.append("file", file);
+
+          try {
+            setUploading(true);
+            const response = await axios.post("http://localhost:5000/upload", formData, {
+              headers: {
+                "Content-Type": "multipart/form-data",
+              },
+            });
+            setMessage("File uploaded successfully!");
+            console.log(response.data);
+          } catch (error) {
+            setMessage("Error uploading file.");
+            console.error(error);
+          } finally {
+            setUploading(false);
+          }
+        };
+
+        return (
+          <div>
+            <h2>Upload a File</h2>
+            <input type="file" onChange={handleFileChange} />
+            <button onClick={handleUpload} disabled={uploading}>
+              {uploading ? "Uploading..." : "Upload"}
+            </button>
+            <p>{message}</p>
+          </div>
+        );
+      };
+
+      export default FileUpload;
+    `
+  }
 
 
 

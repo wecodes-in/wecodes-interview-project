@@ -10,6 +10,7 @@ import { dummyQuestionsGit } from '../Questions/Git';
 import { dummyQuestionsHtml } from '../Questions/Html';
 import { dummyQuestionsRTK } from '../Questions/RTK';
 import { dummyQuestionsCss } from '../Questions/Css';
+import { dummyQuestionsAws } from '../Questions/Aws';
 
   const InterviewQuestionsDatabase = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -21,7 +22,7 @@ import { dummyQuestionsCss } from '../Questions/Css';
     const [activeSection, setActiveSection] = useState('questions');
   
    
-  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml,...dummyQuestionsRTK,...dummyQuestionsCss];
+  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml,...dummyQuestionsRTK,...dummyQuestionsCss,...dummyQuestionsAws];
   
     const filteredQuestions = dummyQuestions.filter(q =>
       q.question.toLowerCase().includes(searchQuery.toLowerCase()) &&
@@ -125,6 +126,8 @@ import { dummyQuestionsCss } from '../Questions/Css';
                       <option value="Git">Git</option>
                       <option value="RTK">RTK</option>
                       <option value="CSS">CSS</option>
+                      <option value="AWS">AWS</option>
+                      
                       
                       
                       <option value="Management">Management</option>
