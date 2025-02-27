@@ -1160,15 +1160,107 @@ const greet = function() {
   },
   {
     id: 75,
-    question: "How does debouncing and throttling work in JavaScript?",
-    answer:
-      "<p><strong>Debouncing</strong> is a technique used to limit the rate at which a function is executed. It ensures that a function is not called repeatedly within a short period of time. Instead, the function is called after a delay, and if the event keeps firing (such as user typing), it resets the timer. It's useful for handling events like keystrokes or window resizing, where you don’t want to trigger an action every time an event occurs, but after the user stops triggering the event for a specific amount of time.</p>" +
-      "<p><strong>Throttling</strong> also limits the number of times a function can be executed, but it guarantees that the function is called at a fixed interval. Unlike debouncing, which waits for the event to stop firing, throttling ensures that the function is executed at regular intervals (e.g., every 100ms), no matter how many times the event is triggered. It’s useful for actions like scrolling or resizing, where you want to limit the frequency of the function calls but still allow the event to fire continuously.</p>" +
-      "<p><strong>Key differences:</strong></p>" +
-      "<ul>" +
-      "<li><strong>Debouncing:</strong> Delays the function call until the event stops firing for a specified amount of time.</li>" +
-      "<li><strong>Throttling:</strong> Ensures the function is called at a fixed interval, regardless of how frequently the event occurs.</li>" +
-      "</ul>",
+    question: "What are Debouncing and Throttling in JavaScript?",
+    answer: `
+        <h2>Debouncing and Throttling in JavaScript</h2>
+        <p>Both <strong>debouncing</strong> and <strong>throttling</strong> are techniques used to optimize the performance of high-frequency events like scrolling, resizing, keypress, and mouse movement.</p>
+
+        <h3><strong>Debouncing</strong></h3>
+        <p>Debouncing ensures that a function executes only after a certain delay has passed since the last event was triggered. This prevents unnecessary function calls when a user continuously triggers an event.</p>
+
+        <h4><strong>Example Scenario:</strong></h4>
+        <p>Imagine a search box that fetches results from an API as the user types. Without debouncing, an API call will be made for every keystroke, leading to excessive API requests.</p>
+
+        <h4>Debounce Function Implementation:</h4>
+        <pre>
+        <code>
+        function debounce(func, delay) {
+            let timer;
+            return function (...args) {
+                clearTimeout(timer); // Clear previous timer
+                timer = setTimeout(() => func(...args), delay); // Set new timer
+            };
+        }
+
+        // Example Usage
+        function searchQuery(query) {
+            console.log("Searching for:", query);
+        }
+
+        const debouncedSearch = debounce(searchQuery, 500);
+        debouncedSearch("example");
+        </code>
+        </pre>
+
+        <h3><strong>Throttling</strong></h3>
+        <p>Throttling limits the number of times a function executes within a specific time interval.</p>
+
+        <h4><strong>The Problem:</strong></h4>
+        <p>Imagine scrolling on a website without throttling. The event handler will trigger multiple times per second, which can slow down performance.</p>
+
+        <h4><strong>The Solution:</strong></h4>
+        <p>With throttling, the function executes only once per set interval, even if the event is triggered multiple times.</p>
+
+        <h4>Without Throttling (Inefficient):</h4>
+        <pre>
+        <code>
+        window.addEventListener("scroll", () => {
+            console.log("Scrolling...", Date.now());
+        });
+        </code>
+        </pre>
+        <p>This function runs too many times, causing performance issues.</p>
+
+        <h4>With Throttling (Optimized):</h4>
+        <pre>
+        <code>
+        function throttle(func, interval) {
+            let lastCall = 0;
+            return function (...args) {
+                const now = Date.now();
+                if (now - lastCall >= interval) {
+                    func(...args);
+                    lastCall = now;
+                }
+            };
+        }
+
+        // Example Usage
+        function logScroll() {
+            console.log("Scrolling...", Date.now());
+        }
+
+        const throttledScroll = throttle(logScroll, 1000);
+        window.addEventListener("scroll", throttledScroll);
+        </code>
+        </pre>
+
+        <h3>Key Differences Between Debouncing and Throttling</h3>
+        <table border="1">
+            <tr>
+                <th>Feature</th>
+                <th>Debouncing</th>
+                <th>Throttling</th>
+            </tr>
+            <tr>
+                <td><strong>Definition</strong></td>
+                <td>Delays function execution until after a pause</td>
+                <td>Limits function execution to once per interval</td>
+            </tr>
+            <tr>
+                <td><strong>Use Case</strong></td>
+                <td>Search input, resize event</td>
+                <td>Scrolling, mouse movement</td>
+            </tr>
+            <tr>
+                <td><strong>Example</strong></td>
+                <td>API call on text input</td>
+                <td>Handling scroll events efficiently</td>
+            </tr>
+        </table>
+
+        <p>Both techniques improve performance by reducing unnecessary function calls, ensuring better user experience and responsiveness.</p>
+    `,
     codeSnippet:
       "<pre><code>// Debouncing example\nfunction debounce(func, delay) {\n  let timer;\n  return function() {\n    clearTimeout(timer);\n    timer = setTimeout(func, delay);\n  };\n}\n\n// Throttling example\nfunction throttle(func, delay) {\n  let lastTime = 0;\n  return function() {\n    const now = new Date().getTime();\n    if (now - lastTime >= delay) {\n      func();\n      lastTime = now;\n    }\n  };\n}</code></pre>",
     example: true,

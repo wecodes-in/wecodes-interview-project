@@ -446,29 +446,37 @@ export const dummyQuestionsReactJs = [
   `
 },
 {
-  id: 1016,
-  question: 'What is the virtual DOM, and how does it work?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
-    <div>
-      <h2>The Virtual DOM and How It Works</h2>
+  "id": 1016,
+  "question": "What is the virtual DOM, and how does it work?",
+  "technology": "React.js",
+  "difficulty": "Medium",
+  "answer": `
+  
       <div>
-        <p>The virtual DOM (VDOM) is a concept and an essential part of React's rendering process. It is a lightweight copy of the actual DOM (Document Object Model) that React uses to improve performance and optimize rendering. The VDOM allows React to update only the necessary parts of the UI, rather than re-rendering the entire page, making the application faster and more efficient.</p>
-        <p>Here’s how the virtual DOM works:</p>
-        <ol>
-          <li>When a component's state or props change, React creates a new virtual DOM tree to reflect these changes.</li>
-          <li>React then compares the new virtual DOM tree with the previous version of the virtual DOM using an algorithm called "Reconciliation" or "Diffing".</li>
-          <li>The diffing process identifies the differences (or "diffs") between the old and new virtual DOM trees.</li>
-          <li>React updates the real DOM with only the changes that need to be applied, minimizing the number of DOM manipulations.</li>
-        </ol>
-        <p>This process ensures that React applications remain fast, even when dealing with complex UI updates, by limiting the number of direct interactions with the real DOM, which is a relatively slow operation compared to working with JavaScript objects in memory.</p>
-        <p>Overall, the virtual DOM helps React provide a seamless user experience and efficient rendering, ensuring that changes are applied quickly and without unnecessary re-renders.</p>
+        The Virtual DOM is a lightweight copy of the real DOM.
+
+       <p> Every time the state of a component changes, React creates a new Virtual DOM instead of updating the real DOM immediately.</p>
+
+       <p> The VDOM is an in-memory representation of the UI, stored as a JavaScript object. It is much faster to manipulate compared to the real DOM because it acts as a data structure.</p>
+
+        <p><h3>How React Uses the Virtual DOM</h3></p>
+
+        <p><strong>1. Initial Rendering:</strong>
+        When a component renders for the first time, React creates a VDOM by mirroring the actual DOM.</p>
+
+      <p>  <strong>2. Component Updates:</strong>
+        When the state of a component changes, React recalculates the Virtual DOM by applying updates to its Virtual DOM. The changes are not immediately applied to the real DOM.</p>
+
+      <p>  <strong>3. Diffing:</strong>
+        React then compares the updated Virtual DOM with the previous Virtual DOM using a process called diffing. This allows React to identify exactly what has changed.</p>
+
+       <p> <strong>4. Efficient Updates:</strong>
+        React only applies the differences between the two Virtual DOMs to the real DOM. This process minimizes the number of updates to the real DOM, ensuring better performance, especially for applications with many dynamic UI changes.</p>
       </div>
-    </div>
+   
   `,
-  example: true,
-  codeSnippet: `
+  "example": true,
+  "codeSnippet": `
     import React, { useState } from 'react';
 
     function Counter() {
@@ -485,6 +493,7 @@ export const dummyQuestionsReactJs = [
     export default Counter;
   `
 },
+
 {
   id: 1017,
   question: 'What are React hooks? Name a few.',
@@ -3086,7 +3095,101 @@ export const dummyQuestionsReactJs = [
 
     export default UserProfile;
   `
-}
+},
+{
+  id: 1071,
+  question: "++What is debouncing in React, and how does it work?",
+  technology: "React.js",
+  difficulty: "Medium",
+  answer:
+    "Debouncing is a technique that delays function execution until after a specified time has elapsed since the last time it was invoked. It helps in optimizing performance by limiting the number of API calls or event executions.",
+  example: true,
+  codeSnippet: `
+    import React, { useState, useEffect } from "react";
+
+    function useDebounce(value, delay) {
+        const [debouncedValue, setDebouncedValue] = useState(value);
+
+        useEffect(() => {
+            const handler = setTimeout(() => {
+                setDebouncedValue(value);
+            }, delay);
+
+            return () => clearTimeout(handler);
+        }, [value, delay]);
+
+        return debouncedValue;
+    }
+
+    function SearchComponent() {
+        const [query, setQuery] = useState("");
+        const debouncedQuery = useDebounce(query, 500);
+
+        useEffect(() => {
+            if (debouncedQuery) {
+                console.log("Fetching results for:", debouncedQuery);
+                // Call API or perform action
+            }
+        }, [debouncedQuery]);
+
+        return (
+            <input
+                type="text"
+                placeholder="Search..."
+                value={query}
+                onChange={(e) => setQuery(e.target.value)}
+            />
+        );
+    }
+
+    export default SearchComponent;
+  `,
+},
+{
+  id: 1072,
+  question: "++What is throttling in React, and how does it work?",
+  technology: "React.js",
+  difficulty: "Medium",
+  answer:
+    "Throttling is a technique that limits the execution of a function to once every specified interval. It is useful for optimizing performance when handling events like scrolling or resizing.",
+  example: true,
+  codeSnippet: `
+    import React, { useState, useEffect } from "react";
+
+    function useThrottle(value, limit) {
+        const [throttledValue, setThrottledValue] = useState(value);
+
+        useEffect(() => {
+            const handler = setTimeout(() => {
+                setThrottledValue(value);
+            }, limit);
+
+            return () => clearTimeout(handler);
+        }, [value, limit]);
+
+        return throttledValue;
+    }
+
+    function ScrollComponent() {
+        const [scrollY, setScrollY] = useState(0);
+        const throttledScrollY = useThrottle(scrollY, 1000); // Updates only once per second
+
+        useEffect(() => {
+            const handleScroll = () => {
+                setScrollY(window.scrollY);
+            };
+
+            window.addEventListener("scroll", handleScroll);
+            return () => window.removeEventListener("scroll", handleScroll);
+        }, []);
+
+        return <div>Scrolled Position: {throttledScrollY}px</div>;
+    }
+
+    export default ScrollComponent;
+  `,
+},
+
 
 
 

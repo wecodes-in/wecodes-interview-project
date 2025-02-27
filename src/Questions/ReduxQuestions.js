@@ -235,15 +235,152 @@ export const dummyQuestionsRedux = [
     codeSnippet: "",
   },
   {
-    id: 3022,
-    question: "What is Redux Saga, and how does it compare to Redux Thunk?",
-    technology: "Redux",
-    difficulty: "Intermediate",
-    answer:
-      "<p><strong>Redux Saga</strong> is a middleware that manages side effects in Redux applications, like API calls or complex asynchronous logic. It uses generator functions to handle side effects in a more organized manner compared to Redux Thunk. While Redux Thunk relies on functions inside action creators, Redux Saga uses a more declarative approach with generator functions, making it more scalable for complex side effects.</p>",
-    example: true,
-    codeSnippet: "",
-  },
+    "id": 3022,
+    "question": "What is the difference between Redux Thunk and Redux-Saga?",
+    "technology": "Redux",
+    "difficulty": "Medium",
+    "answer": `
+      <div>
+        <h2>Difference Between Redux Thunk and Redux-Saga</h2>
+  
+        <p>The key difference between Redux Thunk and Redux-Saga lies in how they handle asynchronous operations in a Redux application.</p>
+  
+        <h3>Redux Thunk</h3>
+        <strong>What it is?</strong>
+        <p>A middleware that allows you to write async logic inside action creators using functions.</p>
+  
+        <strong>How it works?</strong>
+        <ul>
+          <li>It enables action creators to return functions instead of plain action objects.</li>
+          <li>Inside this function, you can perform asynchronous operations (like API calls) and dispatch actions based on the result.</li>
+        </ul>
+  
+        <strong>Key Features:</strong>
+        <ul>
+          <li>Uses promises (async/await) for handling side effects.</li>
+          <li>Simple and easy to understand.</li>
+          <li>Good for small to medium-sized applications.</li>
+          <li>More dependent on JavaScript's native async handling.</li>
+        </ul>
+  
+        <h4>Example:</h4>
+        <pre>
+          <code>
+            const fetchUser = (userId) => {
+              return async (dispatch) => {
+                dispatch({ type: "FETCH_USER_REQUEST" });
+                try {
+                  const response = await fetch(\`/api/users/\${userId}\`);
+                  const data = await response.json();
+                  dispatch({ type: "FETCH_USER_SUCCESS", payload: data });
+                } catch (error) {
+                  dispatch({ type: "FETCH_USER_FAILURE", error });
+                }
+              };
+            };
+          </code>
+        </pre>
+  
+        <h3>Redux-Saga</h3>
+        <strong>What it is?</strong>
+        <p>A middleware that handles side effects using generator functions.</p>
+  
+        <strong>How it works?</strong>
+        <ul>
+          <li>Uses ES6 generators (function*) to manage async flows.</li>
+          <li>Provides more advanced handling of async operations like debouncing, canceling tasks, and handling complex async workflows.</li>
+        </ul>
+  
+        <strong>Key Features:</strong>
+        <ul>
+          <li>Uses sagas (generator functions) instead of promises.</li>
+          <li>More powerful for complex async flows (e.g., race conditions, multiple API calls).</li>
+          <li>Allows cancellation, debounce, and retry mechanisms.</li>
+          <li>Better for large-scale applications.</li>
+        </ul>
+  
+        <h4>Example:</h4>
+        <pre>
+          <code>
+            import { call, put, takeEvery } from "redux-saga/effects";
+  
+            function* fetchUser(action) {
+              try {
+                const response = yield call(fetch, \`/api/users/\${action.userId}\`);
+                const data = yield response.json();
+                yield put({ type: "FETCH_USER_SUCCESS", payload: data });
+              } catch (error) {
+                yield put({ type: "FETCH_USER_FAILURE", error });
+              }
+            }
+  
+            function* watchFetchUser() {
+              yield takeEvery("FETCH_USER_REQUEST", fetchUser);
+            }
+          </code>
+        </pre>
+  
+        <h3>Comparison Table</h3>
+        <table border="1">
+          <tr>
+            <th>Feature</th>
+            <th>Redux Thunk</th>
+            <th>Redux-Saga</th>
+          </tr>
+          <tr>
+            <td>Approach</td>
+            <td>Uses Promises and async/await</td>
+            <td>Uses Generators (function*)</td>
+          </tr>
+          <tr>
+            <td>Complexity</td>
+            <td>Simple, easy to use</td>
+            <td>More complex but powerful</td>
+          </tr>
+          <tr>
+            <td>Best for</td>
+            <td>Small to medium apps</td>
+            <td>Large-scale apps with complex async logic</td>
+          </tr>
+          <tr>
+            <td>Handling Side Effects</td>
+            <td>Direct async calls inside action creators</td>
+            <td>Uses effects like call, put, takeEvery</td>
+          </tr>
+          <tr>
+            <td>Cancellation & Debouncing</td>
+            <td>Not built-in, needs manual handling</td>
+            <td>Supports cancellation, debounce, retry, etc.</td>
+          </tr>
+          <tr>
+            <td>Learning Curve</td>
+            <td>Easier</td>
+            <td>Steeper due to generators</td>
+          </tr>
+        </table>
+  
+        <h3>Which One Should You Use?</h3>
+        <ul>
+          <li>If your app is small to medium, and you need basic async handling → <strong>Use Redux Thunk</strong>.</li>
+          <li>If your app is large and complex, requiring advanced async control like cancellation, debouncing, or background tasks → <strong>Use Redux-Saga</strong>.</li>
+        </ul>
+      </div>
+    `,
+    "example": true,
+    "codeSnippet": `
+      import { createStore, applyMiddleware } from "redux";
+      import thunk from "redux-thunk";
+      import createSagaMiddleware from "redux-saga";
+  
+      // Creating Thunk Store
+      const thunkStore = createStore(reducer, applyMiddleware(thunk));
+  
+      // Creating Saga Store
+      const sagaMiddleware = createSagaMiddleware();
+      const sagaStore = createStore(reducer, applyMiddleware(sagaMiddleware));
+    `
+  }
+  ,
   {
     id: 3023,
     question: "How does Redux handle side effects in applications?",
@@ -572,4 +709,32 @@ export const dummyQuestionsRedux = [
     codeSnippet:
       "<code>const store = createStore(reducer, window.__INITIAL_STATE__);</code>",
   },
+  {
+    "id": 3050,
+    "question": "What is a Pure Function in JavaScript?",
+    "technology": "JavaScript",
+    "difficulty": "Medium",
+    "answer": "A pure function is a function that always produces the same output for the same input and has no side effects. It does not modify external states, ensuring predictability and reusability.",
+    "example": true,
+    "codeSnippet": `
+      // Pure Function Example
+      function add(a, b) {
+        return a + b;
+      }
+  
+      console.log(add(2, 3)); // Output: 5
+      console.log(add(2, 3)); // Output: 5 (Always the same)
+  
+      // Impure Function Example
+      let total = 0;
+      function addToTotal(num) {
+        total += num; // Modifies external state (impure)
+        return total;
+      }
+  
+      console.log(addToTotal(5)); // Output: 5
+      console.log(addToTotal(5)); // Output: 10 (Different output for same input)
+    `
+  }
+  
 ];
