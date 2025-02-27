@@ -27,7 +27,7 @@ export const dummyQuestionsJavaScript = [
     `
   },
   {
-    id: 6051,
+    id: 3,
     question: "Explain var, let, and const with examples.",
     answer:
       "<p>In JavaScript, <code>var</code>, <code>let</code>, and <code>const</code> are used to declare variables, but they have different characteristics:</p>" +
@@ -49,20 +49,6 @@ export const dummyQuestionsJavaScript = [
     difficulty: "Easy"
   }
   ,
-  {
-    id: 3,
-    question: "What are JavaScript data types?",
-    technology: "JavaScript",
-    difficulty: "Easy",
-    answer:
-      "JavaScript supports primitive data types such as Number, String, Boolean, Undefined, Null, Symbol, and BigInt. Additionally, objects like arrays and functions are considered non-primitive or reference types.",
-    example: true,
-    codeSnippet: `const str = "Hello"; // String
-const num = 123; // Number
-const bool = true; // Boolean
-const obj = { name: 'John' }; // Object
-const arr = [1, 2, 3]; // Array (Object)`,
-  },
   {
     id: 4,
     question: "Explain hoisting in JavaScript.",
@@ -128,7 +114,21 @@ fetchData((message) => {
     example: false,
     codeSnippet: "",
   },
- 
+  {
+    id: 9,
+    question: "What are JavaScript data types?",
+    technology: "JavaScript",
+    difficulty: "Easy",
+    answer:
+      "JavaScript supports primitive data types such as Number, String, Boolean, Undefined, Null, Symbol, and BigInt. Additionally, objects like arrays and functions are considered non-primitive or reference types.",
+    example: true,
+    codeSnippet: `const str = "Hello"; // String
+const num = 123; // Number
+const bool = true; // Boolean
+const obj = { name: 'John' }; // Object
+const arr = [1, 2, 3]; // Array (Object)`,
+  },
+  
   {
     id: 10,
     question: "What is event delegation in JavaScript?",

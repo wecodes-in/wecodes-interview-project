@@ -1,9 +1,9 @@
 export const dummyQuestionsReactJs = [
   {
     id: 999,
-    question: 'What is React.js?',
-    technology: 'React.js',
-    difficulty: 'Easy',
+    question: "What is React.js?",
+    technology: "React.js",
+    difficulty: "Easy",
     answer: `
        <h2>React.js: A Powerful JavaScript Library for UI Development</h2>
     
@@ -36,13 +36,13 @@ export const dummyQuestionsReactJs = [
       }
   
       ReactDOM.render(<App />, document.getElementById('root'));
-    `
+    `,
   },
   {
     id: 1000,
-    question: 'What is JSX in React?',
-    technology: 'React.js',
-    difficulty: 'Easy',
+    question: "What is JSX in React?",
+    technology: "React.js",
+    difficulty: "Easy",
     answer: `
       JSX (JavaScript XML) is a syntax extension for JavaScript. It allows you to write HTML-like syntax directly in JavaScript, which is then transformed into React elements. JSX makes it easier to create React components by allowing a more declarative style of writing.
     `,
@@ -50,13 +50,14 @@ export const dummyQuestionsReactJs = [
     codeSnippet: `
       const element = <h1>Hello, world!</h1>;
       ReactDOM.render(element, document.getElementById('root'));
-    `
+    `,
   },
   {
     id: 1001,
-    question: 'What is the difference between functional and class components in React?',
-    technology: 'React.js',
-    difficulty: 'Medium',
+    question:
+      "What is the difference between functional and class components in React?",
+    technology: "React.js",
+    difficulty: "Medium",
     answer: `
       Functional components are stateless components that accept props and return React elements. Class components, on the other hand, can maintain local state and lifecycle methods. With the introduction of React hooks, functional components can now manage state and lifecycle methods as well.
     `,
@@ -73,13 +74,13 @@ export const dummyQuestionsReactJs = [
           return <h1>Hello, {this.props.name}</h1>;
         }
       }
-    `
+    `,
   },
   {
     id: 1002,
-    question: 'What are React Hooks?',
-    technology: 'React.js',
-    difficulty: 'Medium',
+    question: "What are React Hooks?",
+    technology: "React.js",
+    difficulty: "Medium",
     answer: `
       React Hooks are functions that let you use state and other React features (like lifecycle methods) in functional components. Common hooks include \`useState\`, \`useEffect\`, \`useRef\`, and \`useContext\`.
     `,
@@ -99,13 +100,13 @@ export const dummyQuestionsReactJs = [
           </div>
         );
       }
-    `
+    `,
   },
   {
     id: 1003,
-    question: 'What is the useEffect hook, and how does it work?',
-    technology: 'React.js',
-    difficulty: 'Medium',
+    question: "What is the useEffect hook, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
     answer: `
       The \`useEffect\` hook allows you to perform side effects in functional components, such as fetching data, subscribing to events, or directly manipulating the DOM. It runs after the component renders and can also clean up after effects by returning a cleanup function.
     `,
@@ -134,24 +135,26 @@ export const dummyQuestionsReactJs = [
           </div>
         );
       }
-    `
+    `,
   },
   {
     id: 1004,
-    question: 'What is React Fiber, and how does it improve React’s performance?',
-    technology: 'React.js',
-    difficulty: 'Advanced',
+    question:
+      "What is React Fiber, and how does it improve React’s performance?",
+    technology: "React.js",
+    difficulty: "Advanced",
     answer: `
       React Fiber is a complete rewrite of React's reconciliation algorithm, introduced in React 16. It improves React's performance by breaking the rendering work into smaller units, making it more responsive and better at handling animations and user interactions without blocking the UI.
     `,
     example: false,
-    codeSnippet: ``
+    codeSnippet: ``,
   },
   {
     id: 1005,
-    question: 'What is the purpose of the useReducer hook, and how does it differ from useState?',
-    technology: 'React.js',
-    difficulty: 'Medium',
+    question:
+      "What is the purpose of the useReducer hook, and how does it differ from useState?",
+    technology: "React.js",
+    difficulty: "Medium",
     answer: `
       \`useReducer\` is a hook that lets you manage more complex state logic compared to \`useState\`. It is often used when state logic depends on multiple sub-values or when the next state depends on the previous state. While \`useState\` returns a state variable and an updater function, \`useReducer\` returns a state and a dispatch function for triggering state changes.
     `,
@@ -185,13 +188,13 @@ export const dummyQuestionsReactJs = [
           </div>
         );
       }
-    `
+    `,
   },
   {
     id: 1006,
-    question: 'What is the purpose of the useLayoutEffect hook?',
-    technology: 'React.js',
-    difficulty: 'Advanced',
+    question: "What is the purpose of the useLayoutEffect hook?",
+    technology: "React.js",
+    difficulty: "Advanced",
     answer: `
       \`useLayoutEffect\` is similar to \`useEffect\`, but it runs synchronously after all DOM mutations are completed. It is useful for performing DOM measurements or making DOM updates that must happen before the browser paints. Unlike \`useEffect\`, \`useLayoutEffect\` blocks the render until it finishes, which can affect performance if overused.
     `,
@@ -217,14 +220,14 @@ export const dummyQuestionsReactJs = [
           </div>
         );
       }
-    `
+    `,
   },
 
   {
     id: 1007,
-    question: 'What is PropTypes in React, and why would you use it?',
-    technology: 'React.js',
-    difficulty: 'Medium',
+    question: "What is PropTypes in React, and why would you use it?",
+    technology: "React.js",
+    difficulty: "Medium",
     answer: `
       PropTypes is a built-in feature of React used for type-checking the props passed to a component. It helps ensure that components receive the correct type of props and that no required props are missing. This improves code maintainability and reduces runtime errors.
     `,
@@ -245,13 +248,14 @@ export const dummyQuestionsReactJs = [
       Greeting.defaultProps = {
         age: 25
       };
-    `
+    `,
   },
   {
     id: 1008,
-    question: 'What are error boundaries in React, and how do you implement one?',
-    technology: 'React.js',
-    difficulty: 'Advanced',
+    question:
+      "What are error boundaries in React, and how do you implement one?",
+    technology: "React.js",
+    difficulty: "Advanced",
     answer: `
       Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of crashing the whole app. They are implemented using class components by overriding the \`componentDidCatch\` lifecycle method.
     `,
@@ -287,13 +291,13 @@ export const dummyQuestionsReactJs = [
           </ErrorBoundary>
         );
       }
-    `
+    `,
   },
   {
     id: 1009,
-    question: 'What are props in React?',
-    technology: 'React.js',
-    difficulty: 'Easy',
+    question: "What are props in React?",
+    technology: "React.js",
+    difficulty: "Easy",
     answer: `
       In React, **props** (short for "properties") are used to pass data from a parent component to a child component. They enable reusable and dynamic components by allowing values to be passed as arguments.
   
@@ -321,14 +325,14 @@ export const dummyQuestionsReactJs = [
       }
   
       export default App;
-    `
-  }
-,{
-  id: 1010,
-  question: 'What is the difference between state and props in React?',
-  technology: 'React.js',
-  difficulty: 'Easy',
-  answer: `  
+    `,
+  },
+  {
+    id: 1010,
+    question: "What is the difference between state and props in React?",
+    technology: "React.js",
+    difficulty: "Easy",
+    answer: `  
   <div>  
     <h2>State and Props in React</h2>  
     <div>  
@@ -346,10 +350,9 @@ export const dummyQuestionsReactJs = [
       <p>Props allow communication between components, while state is managed locally within a component.</p>  
     </div>  
   </div>  
-  `  
-  ,
-  example: true,
-  codeSnippet: `
+  `,
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     // Component using props
@@ -379,14 +382,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1011,
-  question: 'What is state in React?',
-  technology: 'React.js',
-  difficulty: 'Easy',
-  answer: `
+  `,
+  },
+  {
+    id: 1011,
+    question: "What is state in React?",
+    technology: "React.js",
+    difficulty: "Easy",
+    answer: `
     <div>
       <h2>State in React</h2>
       <div>
@@ -397,8 +400,8 @@ export const dummyQuestionsReactJs = [
       </div>
       </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function Counter() {
@@ -413,14 +416,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Counter;
-  `
-},
-{
-  id: 1015,
-  question: 'How does React handle rendering?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1015,
+    question: "How does React handle rendering?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>How React Handles Rendering</h2>
       <div>
@@ -437,8 +440,8 @@ export const dummyQuestionsReactJs = [
       </div>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function Counter() {
@@ -453,14 +456,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Counter;
-  `
-},
-{
-  "id": 1016,
-  "question": "What is the virtual DOM, and how does it work?",
-  "technology": "React.js",
-  "difficulty": "Medium",
-  "answer": `
+  `,
+  },
+  {
+    id: 1016,
+    question: "What is the virtual DOM, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
   
       <div>
         The Virtual DOM is a lightweight copy of the real DOM.
@@ -485,8 +488,8 @@ export const dummyQuestionsReactJs = [
       </div>
    
   `,
-  "example": true,
-  "codeSnippet": `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function Counter() {
@@ -501,15 +504,15 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Counter;
-  `
-},
+  `,
+  },
 
-{
-  id: 1017,
-  question: 'What are React hooks? Name a few.',
-  technology: 'React.js',
-  difficulty: 'Easy',
-  answer: `
+  {
+    id: 1017,
+    question: "What are React hooks? Name a few.",
+    technology: "React.js",
+    difficulty: "Easy",
+    answer: `
     <div>
       <h2>React Hooks</h2>
       <div>
@@ -528,8 +531,8 @@ export const dummyQuestionsReactJs = [
       </div>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from 'react';
 
     function Timer() {
@@ -544,14 +547,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Timer;
-  `
-},
-{
-  id: 1019,
-  question: 'Create a simple custom hook for counting numbers.',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1019,
+    question: "Create a simple custom hook for counting numbers.",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Creating a Simple Counter Custom Hook in React</h2>
       <div>
@@ -559,8 +562,8 @@ export const dummyQuestionsReactJs = [
       </div>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import { useState } from 'react';
 
     // Custom hook for counting numbers
@@ -574,14 +577,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default useCounter;
-  `
-},
-{
-  id: 1020,
-  question: 'Create a custom hook for fetching data from an API.',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1020,
+    question: "Create a custom hook for fetching data from an API.",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Custom Hook for Fetching Data in React</h2>
       <div>
@@ -589,8 +592,8 @@ export const dummyQuestionsReactJs = [
       </div>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import { useState, useEffect } from 'react';
 
     // Custom hook to fetch data from an API
@@ -646,22 +649,22 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1021,
-  question: 'What is useEffect, and how does it work?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `<div>
+  `,
+  },
+  {
+    id: 1021,
+    question: "What is useEffect, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `<div>
       <h2>useEffect Hook in React</h2>
       <div>
         <p>The <strong>useEffect</strong> hook is used in React to perform side effects in functional components. Side effects are operations that can interact with the outside world, such as fetching data, subscribing to events, manually modifying the DOM, or timers. This hook allows you to run such code when a component mounts, updates, or unmounts.</p>
         <p>By default, the <strong>useEffect</strong> hook runs after every render, but you can control its behavior by passing dependencies. If you provide an empty dependency array ' [] ', the effect will run only once, mimicking componentDidMount. If you specify dependencies in the array, the effect will run when any of those dependencies change, mimicking componentDidUpdate. The effect can also return a cleanup function that will run when the component is unmounted or when the effect is about to rerun.</p>
       </div>
     </div>`,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from 'react';
 
     function Timer() {
@@ -679,14 +682,14 @@ export const dummyQuestionsReactJs = [
       return <div>Time: {seconds} seconds</div>;
     }
 
-    export default Timer; `
-},
-{
-  id: 1022,
-  question: 'Explain controlled vs. uncontrolled components in React.',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+    export default Timer; `,
+  },
+  {
+    id: 1022,
+    question: "Explain controlled vs. uncontrolled components in React.",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Controlled vs. Uncontrolled Components in React</h2>
       <div>
@@ -705,8 +708,8 @@ export const dummyQuestionsReactJs = [
       </div>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     // Controlled Component
@@ -741,15 +744,15 @@ export const dummyQuestionsReactJs = [
     }
 
     export { ControlledInput, UncontrolledInput };
-  `
-},
+  `,
+  },
 
-{
-  id: 1023,
-  question: 'What is the useRef hook used for in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  {
+    id: 1023,
+    question: "What is the useRef hook used for in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <p>The <strong>useRef</strong> hook in React is used to create a mutable reference that persists across renders without causing a re-render when updated. It is commonly used for:</p>
       <ul>
@@ -767,8 +770,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
   //1. Accessing DOM Elements – You can use useRef to get a reference to a DOM element and manipulate it directly.
     
   import { useRef, useEffect, useState } from 'react';
@@ -830,15 +833,14 @@ export const dummyQuestionsReactJs = [
         </div>
       );
     }
-  `
-}
-,
-{
-  id: 1025,
-  question: 'What is React context, and how does it work?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1025,
+    question: "What is React context, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>What is React Context?</h2>
       <p>React Context is a feature in React that allows for the sharing of data across the component tree without having to explicitly pass props down at every level. It's designed to handle global data that needs to be accessible by many components in an application, such as user authentication, theme preferences, or language settings.</p>
@@ -864,8 +866,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useContext } from 'react';
 
     // Create a Context object
@@ -907,14 +909,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1026,
-  question: 'What is the significance of keys in lists?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1026,
+    question: "What is the significance of keys in lists?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Significance of Keys in Lists in React</h2>
       <p>In React, keys are special string attributes used to identify which items in a list are changed, added, or removed. They help React optimize the process of updating the User Interface (UI) when items in a list change.</p>
@@ -940,8 +942,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React from 'react';
 
     function ItemList({ items }) {
@@ -965,14 +967,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1027,
-  question: 'How do you handle forms in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1027,
+    question: "How do you handle forms in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Handling Forms in React</h2>
       <p>Forms in React are handled using controlled and uncontrolled components. Controlled components use React's state to manage form data, while uncontrolled components rely on the DOM itself to manage the form data.</p>
@@ -1000,8 +1002,8 @@ export const dummyQuestionsReactJs = [
       <p>In React, form submission is usually handled by an event handler (e.g., onSubmit). When the form is submitted, React processes the data based on the controlled or uncontrolled approach used. After submission, you can perform actions such as validating the data or sending it to a backend server.</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function Form() {
@@ -1040,13 +1042,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Form;
-  `
-},{
-  id: 1028,
-  question: 'What is the useMemo hook used for?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1028,
+    question: "What is the useMemo hook used for?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>useMemo Hook in React</h2>
       <p>The <code>useMemo</code> hook is used to optimize performance by memoizing the result of a calculation or a function, meaning it only recalculates the value when its dependencies change. This helps prevent unnecessary recalculations on each render, improving the efficiency of your React app, especially when working with expensive calculations.</p>
@@ -1064,8 +1067,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useMemo, useState } from 'react';
 
     function ExpensiveCalculationComponent() {
@@ -1086,15 +1089,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default ExpensiveCalculationComponent;
-  `
-}
-,
-{
-  id: 1029,
-  question: 'What is the difference between React.memo and useMemo?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1029,
+    question: "What is the difference between React.memo and useMemo?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
 
        <h3><strong>useMemo</strong></h3>
@@ -1118,8 +1120,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useMemo } from 'react';
 
     // Memoized Component
@@ -1144,13 +1146,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},{
-  id: 1030,
-  question: 'What is a Higher-Order Component (HOC) in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1030,
+    question: "What is a Higher-Order Component (HOC) in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Higher-Order Component (HOC) in React</h2>
       <p>A <strong>Higher-Order Component (HOC)</strong> is a function in React that takes a component and returns a new component with additional functionality. It is a pattern used to share common logic across multiple components without modifying the original component's code. HOCs are used to enhance a component's behavior by injecting additional props, state, or functionality.</p>
@@ -1210,8 +1213,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from 'react';
 
     // HOC to add loading functionality
@@ -1241,14 +1244,15 @@ export const dummyQuestionsReactJs = [
     const MyComponentWithLoading = withLoading(MyComponent);
 
     export default MyComponentWithLoading;
-  `
-},
-{
-  id: 1032,
-  question: 'What is the difference between useMemo and useCallback in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1032,
+    question:
+      "What is the difference between useMemo and useCallback in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <p>Both <strong>useMemo</strong> and <strong>useCallback</strong> are React hooks that help with performance optimization by memoizing values or functions. However, they are used for different purposes.</p>
 
@@ -1266,8 +1270,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useCallback, useMemo } from 'react';
 
     function App() {
@@ -1299,14 +1303,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1035,
-  question: 'How can you handle conditional rendering in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1035,
+    question: "How can you handle conditional rendering in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Conditional Rendering in React</h2>
       <p>Conditional rendering in React is the process of rendering different UI elements or components based on specific conditions. It allows React to display content dynamically depending on state, props, or any other variables. There are various ways to handle conditional rendering in React.</p>
@@ -1320,8 +1324,8 @@ export const dummyQuestionsReactJs = [
       <p>Conditional rendering is helpful for showing or hiding elements, managing form validations, handling loading states, and more.</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function App() {
@@ -1352,14 +1356,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1036,
-  question: 'How do you prevent unnecessary re-renders in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1036,
+    question: "How do you prevent unnecessary re-renders in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Preventing Unnecessary Re-renders in React</h2>
       <p>Unnecessary re-renders in React can impact performance, especially in large applications. React will re-render components whenever their state or props change. However, re-renders can be avoided or minimized by applying specific strategies and hooks.</p>
@@ -1376,8 +1380,8 @@ export const dummyQuestionsReactJs = [
       <p>In a functional component, you can wrap the component with <code>React.memo</code> to optimize rendering.</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useCallback } from 'react';
 
     // Component wrapped with React.memo to prevent unnecessary re-renders
@@ -1408,14 +1412,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1037,
-  question: 'What is lazy loading in React, and how is it implemented?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1037,
+    question: "What is lazy loading in React, and how is it implemented?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>Lazy Loading in React</h2>
       <p>Lazy loading is a technique used in React to load components only when they are required, rather than loading them all at once. This can significantly improve the performance of the application by reducing the initial loading time and decreasing the amount of JavaScript that needs to be parsed and executed. Lazy loading is especially useful for large applications with many routes or components that are not immediately necessary for the user.</p>
@@ -1438,8 +1442,8 @@ export const dummyQuestionsReactJs = [
       <p>Here’s how you can implement lazy loading in a React application:</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { Suspense, lazy } from 'react';
 
     // Lazy load the component
@@ -1458,14 +1462,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1038,
-  question: 'What is the difference between useEffect and componentDidMount?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1038,
+    question: "What is the difference between useEffect and componentDidMount?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>useEffect vs componentDidMount in React</h2>
       <p>Both <code>useEffect</code> and <code>componentDidMount</code> are used to handle side effects in React, but they belong to different types of components and have some key differences in their usage and behavior.</p>
@@ -1484,15 +1488,15 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: false,
-  codeSnippet: ''
-},
-{
-  id: 1039,
-  question: 'What is the React lifecycle for function-based components?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+    example: false,
+    codeSnippet: "",
+  },
+  {
+    id: 1039,
+    question: "What is the React lifecycle for function-based components?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h2>React Lifecycle for Function-based Components</h2>
       <p>In React, function-based components don't have traditional lifecycle methods like class components (e.g., <code>componentDidMount</code>, <code>componentDidUpdate</code>, <code>componentWillUnmount</code>). However, function-based components can handle lifecycle-like behavior using React Hooks, primarily <code>useEffect</code> and <code>useState</code> for managing side effects and state.</p>
@@ -1528,15 +1532,15 @@ export const dummyQuestionsReactJs = [
       <p>In function-based components, React's lifecycle is managed using hooks like <code>useEffect</code> and <code>useState</code>, enabling developers to handle side effects, manage state, and perform cleanup when the component is mounted, updated, or unmounted.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: ''
-},
-{
-  id: 1041,
-  question: 'Explain the working of React Fiber.',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+    example: false,
+    codeSnippet: "",
+  },
+  {
+    id: 1041,
+    question: "Explain the working of React Fiber.",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>React Fiber</h2>
       <p>React Fiber is the reimplementation of React’s core algorithm for rendering updates in a more efficient way. It is designed to optimize rendering performance by breaking work into units and making the UI more responsive, especially for complex applications.</p>
@@ -1573,15 +1577,15 @@ export const dummyQuestionsReactJs = [
       <p>React Fiber is a significant upgrade to React's rendering algorithm, allowing for incremental rendering, prioritized updates, and better concurrency management. It makes React more efficient and capable of handling complex UIs and interactions, making the overall experience smoother for users.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: ''
-},
-{
-  id: 1042,
-  question: 'What is Suspense in React?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+    example: false,
+    codeSnippet: "",
+  },
+  {
+    id: 1042,
+    question: "What is Suspense in React?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>React Suspense</h2>
       <p>Suspense is a feature introduced in React to handle asynchronous operations like data fetching, code splitting, and loading components in a more seamless and efficient manner. It allows developers to specify the loading states for components that depend on async data or resources and render fallback content while the required data or components are being loaded.</p>
@@ -1637,8 +1641,8 @@ export const dummyQuestionsReactJs = [
       <p>Suspense is a powerful tool in React that makes handling asynchronous operations like data fetching and code splitting easier and more intuitive. It provides a way to manage loading states and fallback content seamlessly, enhancing the performance and user experience of React applications.</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { Suspense } from 'react';
 
     const LazyComponent = React.lazy(() => import('./LazyComponent'));
@@ -1655,14 +1659,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1045,
-  question: 'Explain error boundaries in React (function-based component).',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+  `,
+  },
+  {
+    id: 1045,
+    question: "Explain error boundaries in React (function-based component).",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>Error Boundaries in React (Function-Based Component)</h2>
       <p>Error boundaries in React are components designed to catch JavaScript errors anywhere in their child component tree and display a fallback UI instead of crashing the whole app. They help ensure that errors in parts of your application don’t affect other parts, making your app more resilient.</p>
@@ -1750,8 +1754,8 @@ export const dummyQuestionsReactJs = [
       <p>While error boundaries in class components are built-in in React, using a functional component with hooks like <code>useState</code> and <code>useEffect</code> provides a way to achieve similar functionality. This allows developers to gracefully handle errors in function-based components and prevent crashes from affecting the entire application.</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from 'react';
 
     function ErrorBoundary({ children }) {
@@ -1787,14 +1791,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default ErrorBoundary;
-  `
-},
-{
-  id: 1050,
-  question: 'What is the difference between Context API and Redux?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+  `,
+  },
+  {
+    id: 1050,
+    question: "What is the difference between Context API and Redux?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>Context API vs Redux</h2>
       <p>Both Context API and Redux are used for state management in React applications, but they differ in their use cases, complexity, and how they handle data flow within an application.</p>
@@ -1839,19 +1843,19 @@ export const dummyQuestionsReactJs = [
       <p>While both Context API and Redux are used for state management, Context API is best suited for simpler use cases, while Redux is better suited for managing more complex state interactions, performance optimizations, and asynchronous tasks.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: `
+    example: false,
+    codeSnippet: `
     {
       // No specific code snippet needed as this is a conceptual explanation.
     }
-  `
-},
-{
-  id: 1051,
-  question: 'How does Redux work in React applications?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+  `,
+  },
+  {
+    id: 1051,
+    question: "How does Redux work in React applications?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>How Redux Works in React Applications</h2>
       <p>Redux is a predictable state container for JavaScript applications, and it works in React applications by managing global state and providing a centralized store to which components can connect. It follows a strict unidirectional data flow, which makes state changes more predictable and easier to debug.</p>
@@ -1887,19 +1891,19 @@ export const dummyQuestionsReactJs = [
       <p>When a user clicks a button in a React component, it dispatches an action to update the state. The action is processed by a reducer, which creates a new state. The component that is connected to the Redux store will re-render with the updated state.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: `
+    example: false,
+    codeSnippet: `
     {
       // No specific code snippet needed as this is a conceptual explanation.
     }
-  `
-},
-{
-  id: 1052,
-  question: 'What are React portals, and why would you use them?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+  `,
+  },
+  {
+    id: 1052,
+    question: "What are React portals, and why would you use them?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>What are React Portals, and Why Would You Use Them?</h2>
       <p><strong>React Portals</strong> provide a way to render a child component into a DOM node that exists outside the parent component's DOM hierarchy. In simpler terms, it allows you to render a component in a different part of the DOM tree, outside the typical parent-child structure.</p>
@@ -1973,8 +1977,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
     import ReactDOM from 'react-dom';
 
@@ -2006,14 +2010,15 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1053,
-  question: 'What is the difference between class-based lifecycle methods and hooks?',
-  technology: 'React.js',
-  difficulty: 'Intermediate',
-  answer: `
+  `,
+  },
+  {
+    id: 1053,
+    question:
+      "What is the difference between class-based lifecycle methods and hooks?",
+    technology: "React.js",
+    difficulty: "Intermediate",
+    answer: `
     <div>
       <h2>Difference Between Class-Based Lifecycle Methods and Hooks</h2>
       <p>In React, there are two main ways to handle component lifecycle: class-based lifecycle methods and hooks (which are used in function components). Both serve similar purposes but differ in their implementation and usage. Here's a breakdown of the key differences:</p>
@@ -2059,15 +2064,15 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: false,
-  codeSnippet: null
-}
-,{
-  id: 1057,
-  question: 'How do you optimize performance in a React application?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+    example: false,
+    codeSnippet: null,
+  },
+  {
+    id: 1057,
+    question: "How do you optimize performance in a React application?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>Performance Optimization in React Applications</h2>
       <p>Optimizing performance in React applications is essential to ensure smooth user experiences, especially in large applications. Here are several strategies to improve the performance of React applications:</p>
@@ -2119,14 +2124,15 @@ export const dummyQuestionsReactJs = [
       <p>Performance optimization in React involves a combination of techniques and best practices to minimize re-renders, reduce bundle sizes, and ensure a smooth user experience. By leveraging features like memoization, code splitting, lazy loading, and optimizing the state management, React applications can run efficiently even at scale.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: null
-},{
-  id: 1058,
-  question: 'How does React handle server-side rendering (SSR)?',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+    example: false,
+    codeSnippet: null,
+  },
+  {
+    id: 1058,
+    question: "How does React handle server-side rendering (SSR)?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>React and Server-Side Rendering (SSR)</h2>
       <p>Server-side rendering (SSR) is a technique where React components are rendered on the server instead of the browser. The rendered HTML is then sent to the client, allowing the page to load faster and be indexed by search engines more efficiently.</p>
@@ -2176,16 +2182,15 @@ export const dummyQuestionsReactJs = [
       <p>React’s server-side rendering (SSR) provides significant advantages in terms of initial page load performance and SEO, especially for content-heavy or public-facing applications. However, it comes with added complexity and performance considerations that developers should be aware of. Using modern frameworks like Next.js can help mitigate many of the challenges involved in SSR.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: null
-}
-,
-{
-  id: 1061,
-  question: 'Explain the concept of hydration in React.',
-  technology: 'React.js',
-  difficulty: 'Advanced',
-  answer: `
+    example: false,
+    codeSnippet: null,
+  },
+  {
+    id: 1061,
+    question: "Explain the concept of hydration in React.",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <div>
       <h2>What is Hydration in React?</h2>
       <p>Hydration in React is the process of making a server-rendered page interactive by attaching React’s event listeners and re-enabling React’s functionality. It occurs after the server sends the pre-rendered HTML to the browser. Hydration allows React to take over the static HTML content, making it a fully interactive React application.</p>
@@ -2239,8 +2244,8 @@ export const dummyQuestionsReactJs = [
       <p>Hydration is a crucial part of server-side rendering (SSR) in React. It allows React to take over a server-rendered page and add interactivity to it. The process ensures that the initial page load is fast and SEO-friendly while maintaining a seamless user experience by adding dynamic behavior to static content.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: `
+    example: false,
+    codeSnippet: `
     import React from 'react';
     import ReactDOM from 'react-dom';
     import App from './App';
@@ -2250,14 +2255,14 @@ export const dummyQuestionsReactJs = [
       <App />,
       document.getElementById('root')
     );
-  `
-},
-{
-  id: 1062,
-  question: 'How do you manage authentication in a React app?',
-  technology: 'React.js',
-  difficulty: 'Intermediate',
-  answer: `
+  `,
+  },
+  {
+    id: 1062,
+    question: "How do you manage authentication in a React app?",
+    technology: "React.js",
+    difficulty: "Intermediate",
+    answer: `
     <div>
       <h2>Managing Authentication in React</h2>
       <p>Authentication in a React application is crucial for securing user data and controlling access to specific parts of the app. React does not have built-in authentication mechanisms, but we can handle it through a combination of state management, browser storage, and routing. The general process involves handling login, protecting routes, storing authentication tokens, and redirecting users based on their authentication status.</p>
@@ -2395,8 +2400,8 @@ export const dummyQuestionsReactJs = [
       <p>Authentication in React applications can be managed using tokens like JWT, storing the token in <code>localStorage</code> or <code>cookies</code>, and using React Router to protect specific routes. Additionally, using the Context API helps manage the authentication state globally in your app, making it easier to handle across different components.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: `
+    example: false,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function Login() {
@@ -2442,21 +2447,21 @@ export const dummyQuestionsReactJs = [
     }
 
     export default Login;
-  `
-},
+  `,
+  },
 
-{
-  id: 1063,
-  question: "What are render props, and how do they work?",
-  technology: "React.js",
-  difficulty: "Medium",
-  answer: `
+  {
+    id: 1063,
+    question: "What are render props, and how do they work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <p>Render props is a pattern in React for sharing code between components. It involves passing a function as a prop to a child component, and this function returns JSX to be rendered. This approach allows for flexible and reusable component logic, as the child component can use the render prop to control the UI or behavior dynamically.</p>
 
     <p>Instead of providing static data, render props allow a function to be passed that gives the child component control over what gets rendered, making the component more dynamic and reusable.</p>
 `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     // DataProvider component that uses render prop
@@ -2490,14 +2495,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  id: 1064,
-  question: "How does React handle event delegation?",
-  technology: "React.js",
-  difficulty: "Medium",
-  answer: `
+  `,
+  },
+  {
+    id: 1064,
+    question: "How does React handle event delegation?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     In React, event delegation is handled using a single event listener attached to the root of the component (or the root DOM node of the entire app, in some cases). This is different from traditional DOM where individual event listeners are attached to each element that requires handling an event.
 
     React takes advantage of event bubbling by attaching a single event listener to the root of the component (or document). When an event occurs, it bubbles up through the DOM tree to the root, where React intercepts it and delegates it to the appropriate event handler based on the target element.
@@ -2506,8 +2511,8 @@ export const dummyQuestionsReactJs = [
 
     In React, you define event handlers directly on the components' JSX elements, and React internally uses event delegation for efficiently handling events.
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { useState } from 'react';
 
     function EventDelegation() {
@@ -2530,14 +2535,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default EventDelegation;
-  `
-},
-{
-  id: 1065,
-  question: "What is the role of middleware in Redux?",
-  technology: "Redux",
-  difficulty: "Medium",
-  answer: `
+  `,
+  },
+  {
+    id: 1065,
+    question: "What is the role of middleware in Redux?",
+    technology: "Redux",
+    difficulty: "Medium",
+    answer: `
     <p>Middleware in Redux serves as a mechanism to extend the store's capabilities by allowing you to intercept and modify actions before they reach the reducer. It acts as a bridge between the dispatching of an action and the point at which the action reaches the reducer.</p>
 
     <p>The primary role of middleware in Redux includes:</p>
@@ -2552,8 +2557,8 @@ export const dummyQuestionsReactJs = [
 
     <p>Overall, middleware provides a flexible and powerful way to add custom logic into the action dispatch process in a Redux-based state management system.</p>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import { createStore, applyMiddleware } from 'redux';
     import thunk from 'redux-thunk';
 
@@ -2585,14 +2590,14 @@ export const dummyQuestionsReactJs = [
 
     // Access store's state
     console.log(store.getState());  // { value: 0 } (initial state, until action is processed)
-  `
-},
-{
-  id: 1066,
-  question: "How do you debounce and throttle function calls in React?",
-  technology: "React.js",
-  difficulty: "Medium",
-  answer: `
+  `,
+  },
+  {
+    id: 1066,
+    question: "How do you debounce and throttle function calls in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <p>Debouncing and throttling are two techniques used to limit the number of times a function is invoked in response to events such as user input or scrolling. These techniques are particularly useful in optimizing performance and avoiding unnecessary function calls during high-frequency events.</p>
 
     <h3>Debouncing:</h3>
@@ -2611,8 +2616,8 @@ export const dummyQuestionsReactJs = [
 
     <p>React provides built-in hooks or libraries like Lodash to implement debouncing and throttling.</p>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import { useState } from 'react';
     import { debounce, throttle } from 'lodash';
 
@@ -2642,14 +2647,14 @@ export const dummyQuestionsReactJs = [
     }
 
     export default App;
-  `
-},
-{
-  "id": 1067,
-  "question": "What is React Concurrent Mode?",
-  "technology": "React",
-  "difficulty": "Advanced",
-  "answer": `
+  `,
+  },
+  {
+    id: 1067,
+    question: "What is React Concurrent Mode?",
+    technology: "React",
+    difficulty: "Advanced",
+    answer: `
     <p>React Concurrent Mode is a set of features that help React apps stay responsive and gracefully adjust to the user’s device capabilities and network speed. It enables React to work on multiple tasks simultaneously and prioritize important updates to keep the UI responsive and smooth, even during complex rendering tasks.</p>
 
     <h3>Key Concepts:</h3>
@@ -2676,16 +2681,16 @@ export const dummyQuestionsReactJs = [
 
     <p>React Concurrent Mode is still experimental, and developers need to enable it manually in their applications.</p>
   `,
-  "example": false,
-  "codeSnippet": ""
-},
+    example: false,
+    codeSnippet: "",
+  },
 
-{
-  id: 1068,
-  question: "What are micro-frontends, and how can React be used with them?",
-  technology: "React.js",
-  difficulty: "Advanced",
-  answer: ` <p>Micro-frontends are an architectural approach to building front-end applications by breaking them down into smaller, more manageable, and independent sections. Each section (or "micro-frontend") can be developed, deployed, and maintained independently, allowing teams to work on different parts of a larger application without interfering with each other. This approach promotes scalability, flexibility, and parallel development in large projects.</p>
+  {
+    id: 1068,
+    question: "What are micro-frontends, and how can React be used with them?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: ` <p>Micro-frontends are an architectural approach to building front-end applications by breaking them down into smaller, more manageable, and independent sections. Each section (or "micro-frontend") can be developed, deployed, and maintained independently, allowing teams to work on different parts of a larger application without interfering with each other. This approach promotes scalability, flexibility, and parallel development in large projects.</p>
 
     <h3>Key Concepts:</h3>
     
@@ -2723,8 +2728,8 @@ export const dummyQuestionsReactJs = [
 
     <p>Micro-frontends come with challenges like integration complexity, shared state management, and performance optimizations. React, with its modularity and component-based architecture, fits well into the micro-frontend ecosystem, allowing teams to manage their sections of the UI independently.</p>
  `,
-  example: false,
-  codeSnippet: `
+    example: false,
+    codeSnippet: `
     // Example of using Module Federation to share a React component across different micro-frontends
 
     // Micro-Frontend 1: Host application
@@ -2757,14 +2762,14 @@ export const dummyQuestionsReactJs = [
         </div>
       );
     };
-  `
-},
-{
-  "id": 1069,
-  "question": "How do you implement infinite scrolling in React?",
-  "technology": "React.js",
-  "difficulty": "Intermediate",
-  "answer": `
+  `,
+  },
+  {
+    id: 1069,
+    question: "How do you implement infinite scrolling in React?",
+    technology: "React.js",
+    difficulty: "Intermediate",
+    answer: `
     <p>Infinite scrolling is a technique used in web development to load more content dynamically as the user scrolls down the page, typically used in applications with long lists or feeds. It helps enhance user experience by providing a smooth, seamless loading of content without requiring the user to navigate to a new page or click to load more items.</p>
 
     <p>To implement infinite scrolling in React, you typically need to:</p>
@@ -2874,8 +2879,8 @@ export const dummyQuestionsReactJs = [
       <li><strong>End of Data</strong>: Handle cases where no more data is available (e.g., by disabling further scroll triggering once all pages have been loaded).</li>
     </ul>
   `,
-  "example": true,
-  "codeSnippet": `
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from 'react';
 
     function InfiniteScroll() {
@@ -2927,14 +2932,15 @@ export const dummyQuestionsReactJs = [
     }
 
     export default InfiniteScroll;
-  `
-},
-{
-  "id": 1070,
-  "question": "How would you handle large-scale state management in a React app?",
-  "technology": "React.js",
-  "difficulty": "Advanced",
-  "answer": `
+  `,
+  },
+  {
+    id: 1070,
+    question:
+      "How would you handle large-scale state management in a React app?",
+    technology: "React.js",
+    difficulty: "Advanced",
+    answer: `
     <p>Handling large-scale state management in a React application requires a robust solution that can scale efficiently as the app grows. To achieve this, several strategies can be employed, including centralized state management tools, component design patterns, and code organization strategies.</p>
 
     <h3>Strategies for Handling Large-Scale State Management in React:</h3>
@@ -3058,8 +3064,8 @@ export const dummyQuestionsReactJs = [
 
     <p>By following these strategies, you can manage state effectively and scale your React application as it grows.</p>
   `,
-  "example": true,
-  "codeSnippet": `
+    example: true,
+    codeSnippet: `
     // Example code for using Redux Toolkit in a React app
 
     import React, { useState } from 'react';
@@ -3097,17 +3103,17 @@ export const dummyQuestionsReactJs = [
     };
 
     export default UserProfile;
-  `
-},
-{
-  id: 1071,
-  question: "++What is debouncing in React, and how does it work?",
-  technology: "React.js",
-  difficulty: "Medium",
-  answer:
-    "Debouncing is a technique that delays function execution until after a specified time has elapsed since the last time it was invoked. It helps in optimizing performance by limiting the number of API calls or event executions.",
-  example: true,
-  codeSnippet: `
+  `,
+  },
+  {
+    id: 1071,
+    question: "++What is debouncing in React, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer:
+      "Debouncing is a technique that delays function execution until after a specified time has elapsed since the last time it was invoked. It helps in optimizing performance by limiting the number of API calls or event executions.",
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from "react";
 
     function useDebounce(value, delay) {
@@ -3147,16 +3153,16 @@ export const dummyQuestionsReactJs = [
 
     export default SearchComponent;
   `,
-},
-{
-  id: 1072,
-  question: "++What is throttling in React, and how does it work?",
-  technology: "React.js",
-  difficulty: "Medium",
-  answer:
-    "Throttling is a technique that limits the execution of a function to once every specified interval. It is useful for optimizing performance when handling events like scrolling or resizing.",
-  example: true,
-  codeSnippet: `
+  },
+  {
+    id: 1072,
+    question: "++What is throttling in React, and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer:
+      "Throttling is a technique that limits the execution of a function to once every specified interval. It is useful for optimizing performance when handling events like scrolling or resizing.",
+    example: true,
+    codeSnippet: `
     import React, { useState, useEffect } from "react";
 
     function useThrottle(value, limit) {
@@ -3191,7 +3197,7 @@ export const dummyQuestionsReactJs = [
 
     export default ScrollComponent;
   `,
-},
+  },
   {
     id: 1073,
     topic: "File Upload in React.js",
@@ -3263,14 +3269,14 @@ export const dummyQuestionsReactJs = [
       };
 
       export default FileUpload;
-    `
+    `,
   },
-{
-  id: 1074,
-  question: '++What is the Context API in React and how does it work?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  {
+    id: 1074,
+    question: "++What is the Context API in React and how does it work?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <p>The <strong>Context API</strong> in React is a built-in feature that allows you to share values like themes, authentication status, or user data across the component tree without prop drilling.</p>
       <p>Context API provides a global state that can be accessed anywhere in the application without having to pass props manually through multiple components.</p>
@@ -3283,8 +3289,8 @@ export const dummyQuestionsReactJs = [
       <p>Here’s an example of implementing a Theme Context:</p>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
     import React, { createContext, useState, useContext } from "react";
 
     // 1. Create Context
@@ -3334,14 +3340,15 @@ export const dummyQuestionsReactJs = [
     };
 
     export default App;
-  `
-},
-{
-  id: 1075,
-  question: '++What is the difference between Redux and Context API in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
+  `,
+  },
+  {
+    id: 1075,
+    question:
+      "++What is the difference between Redux and Context API in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
     <div>
       <p>Redux and Context API are both used for state management in React applications, but they serve different purposes and have varying levels of complexity.</p>
       <table border="1">
@@ -3408,16 +3415,17 @@ export const dummyQuestionsReactJs = [
       <p><strong>Conclusion:</strong> If your app is simple and doesn’t require advanced state management, Context API is a good choice. However, for more complex apps with extensive state transitions, Redux is more suitable.</p>
     </div>
   `,
-  example: false,
-  codeSnippet: ``
-},
+    example: false,
+    codeSnippet: ``,
+  },
 
-{
-  id: 1076,
-  question: "Create Private & Public Routes , login , Authentication vs Authorization ",
-  technology: "JavaScript",
-  difficulty: "Medium",
- "answer": `
+  {
+    id: 1076,
+    question:
+      "Create Private & Public Routes , login , Authentication vs Authorization ",
+    technology: "JavaScript",
+    difficulty: "Medium",
+    answer: `
     <div>
       <h3>PrivateRoute Component (Protecting Dashboard)</h3>
       <p>The <strong>PrivateRoute</strong> component ensures that only authenticated users can access certain pages, like a dashboard.</p>
@@ -3468,8 +3476,8 @@ export const dummyQuestionsReactJs = [
       </ul>
     </div>
   `,
-  example: true,
-  codeSnippet: `
+    example: true,
+    codeSnippet: `
   Authentication happens first.
 🔹 Authorization happens after authentication.
 
@@ -3589,9 +3597,7 @@ const AdminPanel = () => {
 
 export default AdminPanel;
 5️⃣ Wrap Everything in App.js
-js
-Copy
-Edit
+
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 
@@ -3612,37 +3618,83 @@ Authorization → Role-based access control (AdminRoute).
 Protected Routes → Users can't access restricted pages.
 Would you like to add JWT for secure authentication? 😊
   `,
-},
+  },
+  {
+    id: 1077,
+    question:
+      "**What is the difference between useMemo and useCallback in React?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
+    <p><strong>Difference Between <code>useMemo</code> and <code>useCallback</code>:</strong></p>
+    <ul>
+      <li><code>useMemo</code> → Returns a <strong>memoized value</strong>. Used for optimizing expensive calculations.</li>
+      <li><code>useCallback</code> → Returns a <strong>memoized function</strong>. Used for preventing function recreation.</li>
+    </ul>
 
+    <h3>📌 When to Use?</h3>
+    <ul>
+      <li>✅ Use <code>useMemo</code> when you want to <strong>cache computed values</strong> and avoid unnecessary recalculations.</li>
+      <li>✅ Use <code>useCallback</code> when you want to <strong>memoize functions</strong> to avoid unnecessary re-renders.</li>
+    </ul>
 
+    
+  `,
+  example: true,
+    codeSnippet: `
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  ];
+    <h3>📝 Example of <code>useMemo</code></h3>
   
+            import { useState, useMemo } from "react";
+
+            function ExpensiveCalculation({ num }) {
+                const computedValue = useMemo(() => {
+                    console.log("Calculating...");
+                    return num * 10; // Simulated expensive computation
+                }, [num]);
+
+                return <p>Computed Value: {computedValue}</p>;
+            }
+
+            function App() {
+                const [count, setCount] = useState(0);
+                return (
+                    <div>
+                        <button onClick={() => setCount(count + 1)}>Increment</button>
+                        <ExpensiveCalculation num={count} />
+                    </div>
+                );
+            }
+
+            export default App;
+   
+
+    <h3>📝 Example of <code>useCallback</code></h3>
+
+            import { useState, useCallback } from "react";
+
+            function Button({ onClick }) {
+                console.log("Button re-rendered");
+                return <button onClick={onClick}>Click Me</button>;
+            }
+
+            function App() {
+                const [count, setCount] = useState(0);
+
+                const memoizedClickHandler = useCallback(() => {
+                    console.log("Button clicked");
+                }, []);
+
+                return (
+                    <div>
+                        <p>Count: {count}</p>
+                        <button onClick={() => setCount(count + 1)}>Increment</button>
+                        <Button onClick={memoizedClickHandler} />
+                    </div>
+                );
+            }
+
+            export default App;
+  `,
+  },
+];
