@@ -3400,7 +3400,210 @@ export const dummyQuestionsReactJs = [
   `,
   example: false,
   codeSnippet: ``
-}
+},
+
+{
+  id: 1076,
+  question: "Create Private & Public Routes , login , Authentication vs Authorization ",
+  technology: "JavaScript",
+  difficulty: "Medium",
+ "answer": `
+    <div>
+      <h3>PrivateRoute Component (Protecting Dashboard)</h3>
+      <p>The <strong>PrivateRoute</strong> component ensures that only authenticated users can access certain pages, like a dashboard.</p>
+      <ul>
+        <li>It retrieves the authentication token from cookies.</li>
+        <li>If the token exists, it renders the <code>Outlet</code>, allowing access to child components.</li>
+        <li>If the token is missing, it redirects the user to the login page.</li>
+      </ul>
+      
+      <h4>Example Implementation:</h4>
+      <pre>
+        <code>
+          import { Navigate, Outlet } from "react-router-dom";
+          import Cookies from "js-cookie";
+
+          const PrivateRoute = () => {
+            const token = Cookies.get("token"); 
+            return token ? <Outlet /> : <Navigate to="/login" />;
+          };
+        </code>
+      </pre>
+
+      <h3>PublicRoute Component (Restricting Login/Register for Authenticated Users)</h3>
+      <p>The <strong>PublicRoute</strong> component prevents authenticated users from accessing pages like login or register.</p>
+      <ul>
+        <li>It checks for an authentication token in cookies.</li>
+        <li>If the token exists, it redirects the user to the dashboard.</li>
+        <li>Otherwise, it renders the provided element (e.g., Login or Register page).</li>
+      </ul>
+
+      <h4>Example Implementation:</h4>
+      <pre>
+        <code>
+          import { Navigate } from "react-router-dom";
+          import Cookies from "js-cookie";
+
+          const PublicRoute = ({ element }) => {
+            const token = Cookies.get("token");
+            return token ? <Navigate to="/dashboard" /> : element;
+          };
+        </code>
+      </pre>
+
+      <h3>📌 Use Cases:</h3>
+      <ul>
+        <li><strong>PrivateRoute:</strong> Used to protect sensitive routes like dashboards or user profiles.</li>
+        <li><strong>PublicRoute:</strong> Used to restrict authenticated users from accessing login or signup pages.</li>
+      </ul>
+    </div>
+  `,
+  example: true,
+  codeSnippet: `
+  Authentication happens first.
+🔹 Authorization happens after authentication.
+
+
+Authentication (Login & Logout)
+Store user token after login.
+Check if the user is authenticated using cookies.
+🔹 auth.js (Authentication Helper)
+-------------------
+import Cookies from "js-cookie";
+
+export const login = (user) => {
+  Cookies.set("token", "123456789"); // Simulated token
+  Cookies.set("role", user.role); // Store user role (admin/user)
+};
+
+export const logout = () => {
+  Cookies.remove("token");
+  Cookies.remove("role");
+};
+
+export const isAuthenticated = () => !!Cookies.get("token");
+
+export const getUserRole = () => Cookies.get("role");
+3️⃣ Create Private & Public Routes
+Private Route → Allows only authenticated users.
+Public Route → Redirects logged-in users away from login/register pages.
+🔹 routes.js (Routes with Authentication & Authorization)
+--------------------------------------------
+import { createBrowserRouter, Navigate, Outlet } from "react-router-dom";
+import App from "./App";
+import Cookies from "js-cookie"; 
+import Login from "./components/Login";
+import Dashboard from "./components/Dashboard";
+import AdminPanel from "./components/AdminPanel";
+
+const PrivateRoute = () => {
+  return Cookies.get("token") ? <Outlet /> : <Navigate to="/login" />;
+};
+
+const PublicRoute = ({ element }) => {
+  return Cookies.get("token") ? <Navigate to="/dashboard" /> : element;
+};
+
+const AdminRoute = () => {
+  return Cookies.get("role") === "admin" ? <Outlet /> : <Navigate to="/dashboard" />;
+};
+
+const router = createBrowserRouter([
+  { path: "/", element: <App /> },
+  { path: "/login", element: <PublicRoute element={<Login />} /> },
+  {
+    path: "/dashboard",
+    element: <PrivateRoute />,
+    children: [{ path: "", element: <Dashboard /> }],
+  },
+  {
+    path: "/admin",
+    element: <AdminRoute />,
+    children: [{ path: "", element: <AdminPanel /> }],
+  },
+  { path: "*", element: <Navigate to="/login" /> },
+]);
+
+export default router;
+4️⃣ Implement Login & Logout
+🔹 Login.js (Login Page)
+-----------------------------------------------------------------
+import { useNavigate } from "react-router-dom";
+import { login } from "../auth";
+
+const Login = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = (role) => {
+    login({ role }); // Store role-based access
+    navigate("/dashboard");
+  };
+
+  return (
+    <div>
+      <h2>Login</h2>
+      <button onClick={() => handleLogin("user")}>Login as User</button>
+      <button onClick={() => handleLogin("admin")}>Login as Admin</button>
+    </div>
+  );
+};
+
+export default Login;
+🔹 Dashboard.js (User Dashboard)
+
+import { logout } from "../auth";
+import { useNavigate } from "react-router-dom";
+
+const Dashboard = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    navigate("/login");
+  };
+
+  return (
+    <div>
+      <h2>Welcome to the Dashboard</h2>
+      <button onClick={handleLogout}>Logout</button>
+    </div>
+  );
+};
+
+export default Dashboard;
+🔹 AdminPanel.js (Restricted Admin Access)
+
+const AdminPanel = () => {
+  return <h2>Welcome, Admin! You have special privileges.</h2>;
+};
+
+export default AdminPanel;
+5️⃣ Wrap Everything in App.js
+js
+Copy
+Edit
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+
+const App = () => {
+  return <RouterProvider router={router} />;
+};
+
+export default App;
+How This Works?
+✅ Login as a user → Redirects to dashboard.
+✅ Login as an admin → Can access dashboard & admin panel.
+✅ Unauthorized access to /admin → Redirects non-admin users.
+✅ Logout removes cookies & redirects to login.
+
+🚀 Summary
+Authentication → Login/logout with cookies.
+Authorization → Role-based access control (AdminRoute).
+Protected Routes → Users can't access restricted pages.
+Would you like to add JWT for secure authentication? 😊
+  `,
+},
+
 
 
 
