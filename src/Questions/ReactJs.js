@@ -5,17 +5,27 @@ export const dummyQuestionsReactJs = [
     technology: 'React.js',
     difficulty: 'Easy',
     answer: `
-      React.js is an open-source JavaScript library developed by Facebook for building dynamic and interactive user interfaces, especially for single-page applications (SPAs). It allows developers to create reusable UI components and manage application state efficiently.
-      
-      React uses a virtual DOM (Document Object Model) to optimize rendering performance by updating only the necessary parts of the UI when data changes. It follows a component-based architecture, making it easier to build and maintain large-scale applications. 
-  
-      Key features of React include:
-      - **Declarative UI**: React updates the UI efficiently when data changes.
-      - **Component-Based**: Applications are built using reusable components.
-      - **Virtual DOM**: Improves performance by reducing direct DOM manipulations.
-      - **Unidirectional Data Flow**: Data flows from parent to child components, making state management predictable.
-      - **React Hooks**: Allow functional components to manage state and lifecycle methods.
-    `,
+       <h2>React.js: A Powerful JavaScript Library for UI Development</h2>
+    
+    <p>
+        <strong>React.js</strong> is an open-source JavaScript library developed by Facebook for building dynamic and interactive user interfaces, 
+        especially for single-page applications (<strong>SPAs</strong>). It allows developers to create reusable UI components and manage application 
+        state efficiently.
+    </p>
+
+    <p>
+        React uses a <strong>virtual DOM (Document Object Model)</strong> to optimize rendering performance by updating only the necessary parts of 
+        the UI when data changes. It follows a <strong>component-based architecture</strong>, making it easier to build and maintain large-scale applications.
+    </p>
+
+    <h2>Key Features of React</h2>
+    <ul>
+        <li><strong>Declarative UI</strong>: React efficiently updates and renders the UI when data changes.</li>
+        <li><strong>Component-Based</strong>: Applications are structured using reusable and independent components.</li>
+        <li><strong>Virtual DOM</strong>: Enhances performance by minimizing direct interactions with the real DOM.</li>
+        <li><strong>Unidirectional Data Flow</strong>: Ensures predictable state management by passing data from parent to child components.</li>
+        <li><strong>React Hooks</strong>: Enable functional components to manage state and lifecycle methods without using class components.</li>
+    </ul> `,
     example: true,
     codeSnippet: `
       import React from 'react';
@@ -1686,15 +1696,15 @@ export const dummyQuestionsReactJs = [
 
             const handleError = (error, info) => {
               setHasError(true);
-              setErrorInfo({ error, info });
+              set ErrorInfo({ error, info });
             };
 
             if (hasError) {
               return (
-                <div>
-                  <h1>Something went wrong.</h1>
-                  <p>{errorInfo?.error?.toString()}</p>
-                </div>
+                < div>
+                  < h1>Something went wrong</h1>
+                  < p>{errorInfo?.error?.toString()}</p>
+                < /div>
               );
             }
 
@@ -1716,13 +1726,13 @@ export const dummyQuestionsReactJs = [
       <pre>
         <code>
           import React from 'react';
-          import ErrorBoundary from './ErrorBoundary';
+          import ErrorBoundary from 'ErrorBoundary';
 
           function App() {
             return (
-              <ErrorBoundary>
-                <ComponentThatMayThrowError />
-              </ErrorBoundary>
+              < ErrorBoundary >
+                < ComponentThatMayThrowError />
+              < / ErrorBoundary > 
             );
           }
 
@@ -1761,10 +1771,10 @@ export const dummyQuestionsReactJs = [
 
       if (hasError) {
         return (
-          <div>
+          < div>
             <h1>Something went wrong.</h1>
             <p>{errorInfo?.error?.toString()}</p>
-          </div>
+          < /div>
         );
       }
 
