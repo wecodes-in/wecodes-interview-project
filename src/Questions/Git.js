@@ -7,7 +7,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5001,
@@ -17,7 +17,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5002,
@@ -27,7 +27,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5003,
@@ -37,7 +37,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5004,
@@ -47,7 +47,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5005,
@@ -57,7 +57,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5006,
@@ -67,7 +67,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5007,
@@ -77,7 +77,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5008,
@@ -87,7 +87,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5009,
@@ -97,7 +97,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5010,
@@ -107,7 +107,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5011,
@@ -117,7 +117,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5012,
@@ -127,7 +127,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5013,
@@ -137,7 +137,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5014,
@@ -147,7 +147,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5015,
@@ -157,7 +157,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5016,
@@ -167,7 +167,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5017,
@@ -177,7 +177,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5018,
@@ -187,7 +187,7 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
   {
     id: 5019,
@@ -197,6 +197,6 @@ export const dummyQuestionsGit = [
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
-    technology: "Management",
+    technology: "Git",
   },
 ];

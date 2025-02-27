@@ -10,6 +10,23 @@ export const dummyQuestionsJavaScript = [
     codeSnippet: "",
   },
   {
+    id: 2,
+    question: "What is JavaScript? js",
+    technology: "JavaScript",
+    difficulty: "Easy",
+    answer: `
+      <p><strong>What is JavaScript?</strong></p>
+      <p>JavaScript is a programming language that allows you to create <strong>dynamic and interactive</strong> web pages. It enables you to manipulate <strong>HTML & CSS</strong>, handle events, make API calls, and add animations.</p>
+      <p><strong>Example of JavaScript in action:</strong></p>
+    `,
+    example: true,
+    codeSnippet: `
+      document.getElementById("btn").addEventListener("click", function() {
+          alert("Hello, JavaScript is working!");
+      });
+    `
+  },
+  {
     id: 6051,
     question: "Explain var, let, and const with examples.",
     answer:

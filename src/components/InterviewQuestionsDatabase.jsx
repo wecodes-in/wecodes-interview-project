@@ -9,6 +9,7 @@ import { dummyQuestionsManagement } from '../Questions/Management';
 import { dummyQuestionsGit } from '../Questions/Git';
 import { dummyQuestionsHtml } from '../Questions/Html';
 import { dummyQuestionsRTK } from '../Questions/RTK';
+import { dummyQuestionsCss } from '../Questions/Css';
 
   const InterviewQuestionsDatabase = () => {
     const [searchQuery, setSearchQuery] = useState('');
@@ -20,7 +21,7 @@ import { dummyQuestionsRTK } from '../Questions/RTK';
     const [activeSection, setActiveSection] = useState('questions');
   
    
-  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml,...dummyQuestionsRTK];
+  const dummyQuestions = [...dummyQuestionsReactJs,...dummyQuestionsJavaScript,...dummyQuestionsRedux,...dummyQuestionsManagement,...dummyQuestionsGit,...dummyQuestionsHtml,...dummyQuestionsRTK,...dummyQuestionsCss];
   
     const filteredQuestions = dummyQuestions.filter(q =>
       q.question.toLowerCase().includes(searchQuery.toLowerCase()) &&
@@ -123,6 +124,7 @@ import { dummyQuestionsRTK } from '../Questions/RTK';
                       <option value="HTML">HTML</option>
                       <option value="Git">Git</option>
                       <option value="RTK">RTK</option>
+                      <option value="CSS">CSS</option>
                       
                       
                       <option value="Management">Management</option>
@@ -223,7 +225,7 @@ import { dummyQuestionsRTK } from '../Questions/RTK';
         {/* Main Content */}
         <div className="flex-grow">
           <div className="max-w-6xl mx-auto w-full flex-grow">
-            <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 text-indigo-800 tracking-tight">Interview Questions Database</h1>
+            {/* <h1 className="text-4xl sm:text-5xl font-bold text-center mb-8 sm:mb-12 text-indigo-800 tracking-tight">Interview Questions Database</h1> */}
             
             {renderContent()}
   

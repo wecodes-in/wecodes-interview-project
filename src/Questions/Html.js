@@ -443,7 +443,7 @@ export const dummyQuestionsHtml = [
         codeSnippet:
           "<pre><code>/* Example of centering with place-items: center */\n.center-div {\n  display: grid;\n  place-items: center;\n  height: 100vh;\n}\n\n/* Example of centering with justify-items and align-items */\n.center-div {\n  display: grid;\n  justify-items: center;\n  align-items: center;\n  height: 100vh;\n}</code></pre>",
         example: true,
-        technology: "CSS",
+        technology: "HTML",
         difficulty: "Easy",
       },
       {
@@ -573,7 +573,239 @@ pipeline {
         example: true,
         technology: "CI/CD, Jenkins",
         difficulty: "Easy"
-      }
+      },
+      {
+        id: 6043,
+        question: "Difference Between Tailwind and Bootstrap (Easy Explanation)",
+        technology: "HTML",
+        difficulty: "Easy",
+        answer: `
+          <h3>Tailwind CSS</h3>
+          <ul>
+            <li><strong>Utility-first framework</strong> → You build designs using small helper classes.</li>
+            <li><strong>More flexible</strong> → No pre-made styles, you create everything from scratch.</li>
+            <li><strong>Lightweight</strong> → Only the styles you use are included.</li>
+            <li><strong>Requires learning</strong> → You need to understand utility classes.</li>
+          </ul>
+          
+          <h4>Example:</h4>
+          <pre><code>
+          &lt;button class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700"&gt;
+            Click Me
+          &lt;/button&gt;
+          </code></pre>
+      
+          <h3>Bootstrap</h3>
+          <ul>
+            <li><strong>Component-based framework</strong> → Comes with pre-styled buttons, forms, modals, etc.</li>
+            <li><strong>Less flexible</strong> → You have to override styles to customize.</li>
+            <li><strong>Quick to use</strong> → Great for fast development without designing from scratch.</li>
+            <li><strong>Larger file size</strong> → Includes styles you might not use.</li>
+          </ul>
+      
+          <h4>Example:</h4>
+          <pre><code>
+          &lt;button class="btn btn-primary"&gt;
+            Click Me
+          &lt;/button&gt;
+          </code></pre>
+      
+          <h3>Which One to Use in a React App?</h3>
+          <ul>
+            <li><strong>Choose Tailwind CSS</strong> if you want a custom design and better performance.</li>
+            <li><strong>Choose Bootstrap</strong> if you need a ready-made UI with less effort.</li>
+          </ul>
+      
+          <h3>Best for React?</h3>
+          <p><strong>Tailwind CSS</strong> is better for React because:</p>
+          <ul>
+            <li>✅ Works well with components.</li>
+            <li>✅ Helps keep styles inside JSX.</li>
+            <li>✅ Smaller file size → Faster performance.</li>
+          </ul>
+        `,
+        example: true,
+        codeSnippet: ""
+      },
+      {
+        id: 6044,
+        question: "What is the difference between display: none; and visibility: hidden;?",
+        technology: "HTML",
+        difficulty: "Easy",
+        answer: `
+          <p><strong>Difference Between <code>display: none;</code> and <code>visibility: hidden;</code></strong></p>
+          <p><code>display: none;</code> completely removes the element from the layout, meaning it won’t take up any space on the page.</p>
+          <p><code>visibility: hidden;</code> keeps the element in the layout, but it becomes invisible (it still takes up space).</p>
+          <p><strong>Example:</strong></p>
+        `,
+        example: true,
+        codeSnippet: `
+          .hidden-element {
+              display: none;  /* Element disappears completely */
+          }
+    
+          .invisible-element {
+              visibility: hidden; /* Still occupies space but is not visible */
+          }
+        `
+      },
+      {
+        id: 6045,
+        question: "What are the differences between position: absolute;, relative;, static;, and fixed;?",
+        technology: "HTML",
+        difficulty: "Medium",
+        answer: `
+          <p><strong>Differences Between CSS Positioning Properties</strong></p>
+          <ul>
+            <li><strong><code>static</code></strong>: Default position; elements appear in the normal document flow.</li>
+            <li><strong><code>relative</code></strong>: The element stays in the normal document flow but can be moved using <code>top</code>, <code>left</code>, <code>right</code>, or <code>bottom</code>, relative to its original position.</li>
+            <li><strong><code>absolute</code></strong>: The element is removed from the normal flow and positioned relative to its nearest positioned ancestor (if none, it’s positioned relative to <code>&lt;html&gt;</code>).</li>
+            <li><strong><code>fixed</code></strong>: The element is positioned relative to the viewport and does not move when scrolling.</li>
+          </ul>
+          <p><strong>Example:</strong></p>
+        `,
+        example: true,
+        codeSnippet: `
+          .relative-box {
+              position: relative;
+              top: 20px;  /* Moves down 20px from its original position */
+          }
+    
+          .absolute-box {
+              position: absolute;
+              top: 50px;  
+              left: 50px;  /* Positioned relative to the nearest positioned ancestor */
+          }
+    
+          .fixed-box {
+              position: fixed;
+              top: 0;
+              left: 0;  /* Stays at the top-left corner even when scrolling */
+          }
+        `
+      },
+        {
+          id: 6046,
+          question: "What is HTML5? How is it different from previous versions of HTML?",
+          technology: "HTML",
+          difficulty: "Easy",
+          answer: `
+            <p><strong>What is HTML5?</strong></p>
+            <p>HTML5 is the latest version of HTML that comes with improved features for better structure, multimedia, and performance. It introduces:</p>
+            <ul>
+              <li>✅ <strong>New semantic elements</strong> (<code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>, etc.)</li>
+              <li>✅ <strong>Native support for audio and video</strong> (<code>&lt;audio&gt;</code>, <code>&lt;video&gt;</code>)</li>
+              <li>✅ <strong>Canvas for graphics and animations</strong> (<code>&lt;canvas&gt;</code>)</li>
+              <li>✅ <strong>Improved form controls</strong> (<code>&lt;input type="email"&gt;</code>, <code>&lt;input type="date"&gt;</code>, etc.)</li>
+              <li>✅ <strong>Better support for offline applications</strong> (local storage & service workers)</li>
+            </ul>
+          `,
+          example: false
+        },
+        {
+          id: 6047,
+          question: "What is the difference between <b> and <strong>? How about <i> and <em>?",
+          technology: "HTML",
+          difficulty: "Easy",
+          answer: `
+            <p><strong>Difference Between <code>&lt;b&gt;</code> and <code>&lt;strong&gt;</code></strong></p>
+            <p><code>&lt;b&gt;</code> makes text bold, while <code>&lt;strong&gt;</code> gives semantic importance (better for screen readers & SEO).</p>
+            <p><strong>Difference Between <code>&lt;i&gt;</code> and <code>&lt;em&gt;</code></strong></p>
+            <p><code>&lt;i&gt;</code> makes text italic, but <code>&lt;em&gt;</code> gives emphasis (useful for screen readers).</p>
+            <p><strong>Example:</strong></p>
+          `,
+          example: true,
+          codeSnippet: `
+            <p><b>Bold text</b> vs <strong>Important text</strong></p>
+            <p><i>Italic text</i> vs <em>Emphasized text</em></p>
+          `
+        },
+        {
+          id: 6048,
+          question: "What is CSS3? How is it different from CSS2?",
+          technology: "HTML",
+          difficulty: "Easy",
+          answer: `
+            <p><strong>What is CSS3?</strong></p>
+            <p>CSS3 is the latest version of CSS with advanced styling features. Key improvements include:</p>
+            <ul>
+              <li>✅ <strong>Flexbox & Grid</strong> → Better layout control</li>
+              <li>✅ <strong>Animations & Transitions</strong> → Smooth effects without JavaScript</li>
+              <li>✅ <strong>Media Queries</strong> → Responsive design</li>
+              <li>✅ <strong>Custom Fonts & Variables</strong> → More design flexibility</li>
+            </ul>
+            <p><strong>Example of CSS3 transition:</strong></p>
+          `,
+          example: true,
+          codeSnippet: `
+            .button {
+                background-color: blue;
+                transition: background-color 0.3s ease-in-out;
+            }
+      
+            .button:hover {
+                background-color: red;
+            }
+          `
+        },
+        {
+          id: 6049,
+          question: "What is the difference between em, rem, px, and % in CSS?",
+          technology: "HTML",
+          difficulty: "Medium",
+          answer: `
+            <p><strong>Difference Between <code>em</code>, <code>rem</code>, <code>px</code>, and <code>%</code> in CSS:</strong></p>
+            <ul>
+              <li><code>px</code> → Fixed unit, does not scale with screen size.</li>
+              <li><code>em</code> → Relative to the parent element’s font size.</li>
+              <li><code>rem</code> → Relative to the root element’s (<code>html</code>) font size.</li>
+              <li><code>%</code> → Relative to the parent element’s dimensions.</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+          `,
+          example: true,
+          codeSnippet: `
+            html { font-size: 16px; }
+      
+            .parent { font-size: 20px; }
+            .child {
+                font-size: 2em; /* 2 × parent font-size = 40px */
+                padding: 10%; /* 10% of parent’s width */
+            }
+          `
+        },
+        {
+          id: 6050,
+          question: "What is the difference between localStorage, sessionStorage, and cookies in HTML5?",
+          technology: "JavaScript",
+          difficulty: "Medium",
+          answer: `
+            <p><strong>Difference Between <code>localStorage</code>, <code>sessionStorage</code>, and <code>cookies</code>:</strong></p>
+            <ul>
+              <li><code>localStorage</code> → Stores data permanently (until manually cleared).</li>
+              <li><code>sessionStorage</code> → Stores data until the browser session ends.</li>
+              <li><code>cookies</code> → Stores small data that is sent to the server with each request.</li>
+            </ul>
+            <p><strong>Example:</strong></p>
+          `,
+          example: true,
+          codeSnippet: `
+            // Save data
+            localStorage.setItem("name", "Gajendra");
+            sessionStorage.setItem("sessionID", "12345");
+      
+            // Get data
+            console.log(localStorage.getItem("name"));  // "Gajendra"
+      
+            // Remove data
+            localStorage.removeItem("name");
+            sessionStorage.clear();
+          `
+        }
+      
+      
+    
+      
       
       
   ];

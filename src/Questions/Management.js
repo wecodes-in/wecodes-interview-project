@@ -119,7 +119,11 @@ export const dummyQuestionsManagement = [
     id: 4012,
     question: "How do you manage stakeholders with conflicting interests?",
     answer:
-      "It’s common for stakeholders to have different priorities. I usually start by understanding their main concerns and identifying common ground. In one case, marketing wanted a flashy UI, while developers prioritized performance. Instead of choosing sides, I proposed a middle ground—implementing animations but optimizing them for speed. I’ve found that if you explain the impact of decisions with data, it’s easier to get everyone on board.",
+      ` When different stakeholders have conflicting interests, I make sure to listen, understand, and find a middle ground that works for everyone.
+
+For example, if one person wants things done super fast, but another is all about top-notch quality, I don’t just pick a side—I find a way to balance both. I communicate openly, explain the trade-offs, and make sure everyone’s on the same page. And if things get too tricky, I bring in the right decision-makers to keep things moving smoothly.
+
+Basically, it’s all about keeping the peace while getting things done!`,
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
@@ -139,7 +143,11 @@ export const dummyQuestionsManagement = [
     id: 4014,
     question: "How do you handle high-pressure situations?",
     answer:
-      "I stay calm and focus on solutions rather than stress. If things go wrong, I take a step back, assess priorities, and act accordingly. During one launch, a last-minute bug was reported, and instead of panicking, I quickly gathered the team, assigned a fix, and kept stakeholders informed. The key is to avoid spreading panic—if the team sees you handling pressure well, they follow suit.",
+      `I stay calm and focused by breaking the problem into smaller, manageable tasks. Instead of panicking, I prioritize what needs to be done first and tackle it step by step.
+
+I also stay flexible—if something isn’t working, I quickly adapt and find a better approach. Communication is key, so I keep stakeholders updated and collaborate with my team when needed.
+
+Most importantly, I keep a clear mindset by managing stress—whether it’s taking a deep breath, staying organized, or just reminding myself that every challenge has a solution. `,
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
@@ -159,9 +167,26 @@ export const dummyQuestionsManagement = [
   {
     id: 4016,
     question: "What do you do when a project is falling behind schedule?",
-    answer:
-      "First, I identify why—are there technical challenges, scope changes, or resource constraints? I then adjust priorities, delegate tasks smartly, and remove bottlenecks. In one case, we were behind due to unexpected bugs, so I reallocated team members based on strengths and cut non-essential features for version 1.0. We ended up delivering a functional product on time, with improvements planned for later.",
-    codeSnippet: "",
+    answer: `
+    <p>When a project is falling behind schedule, I take a proactive approach to get it back on track. Here's how I handle it:</p>
+
+    <h3><strong>1. Identify the Cause</strong></h3>
+    <p>I analyze what’s slowing things down—scope creep, resource issues, dependencies, or unexpected challenges.</p>
+
+    <h3><strong>2. Prioritize Tasks</strong></h3>
+    <p>I break down the remaining work, focus on high-impact tasks, and remove any unnecessary blockers.</p>
+
+    <h3><strong>3. Improve Efficiency</strong></h3>
+    <p>If needed, I optimize workflows, delegate tasks better, or bring in extra resources.</p>
+
+    <h3><strong>4. Communicate with Stakeholders</strong></h3>
+    <p>I keep everyone informed about the delay and propose realistic solutions rather than just reporting problems.</p>
+
+    <h3><strong>5. Adjust Deadlines (If Necessary)</strong></h3>
+    <p>If meeting the original deadline isn’t possible, I discuss feasible adjustments while ensuring quality isn’t compromised.</p>
+
+    <p>The goal is always to stay <strong>solution-focused</strong> and keep moving forward instead of stressing over delays. 😎</p>
+  `, codeSnippet: "",
     example: false,
     difficulty: "Easy",
     technology: "Management",
@@ -189,11 +214,43 @@ export const dummyQuestionsManagement = [
   {
     id: 4019,
     question: "How do you handle stress or burnout in your team?",
+    answer: `
+    <p>I handle stress and burnout in my team by staying proactive and supportive rather than waiting for it to escalate. Here’s how I approach it:</p>
+
+    <p><strong>1. Identify the Signs Early</strong></p>
+    <p>I keep an eye out for signs like missed deadlines, decreased motivation, or frustration in the team. If I notice someone struggling, I check in with them personally.</p>
+
+    <p><strong>2. Encourage Open Communication</strong></p>
+    <p>I create a culture where team members feel comfortable discussing their workload and challenges. Sometimes, just having a conversation about it can ease the pressure.</p>
+
+    <p><strong>3. Balance the Workload</strong></p>
+    <p>If someone is overloaded, I help redistribute tasks, set realistic priorities, or remove unnecessary blockers. It’s all about working smart, not just working hard.</p>
+
+    <p><strong>4. Promote Breaks & Flexibility</strong></p>
+    <p>I remind my team that burnout helps no one—taking short breaks, time off, or even flexible work hours can improve productivity and mental well-being.</p>
+
+    <p><strong>5. Keep the Morale High</strong></p>
+    <p>Small wins, appreciation, and even a bit of humor can lighten the mood. A simple “Great job!” or celebrating milestones goes a long way.</p>
+
+    <p><strong>6. Lead by Example</strong></p>
+    <p>If I’m constantly stressed, my team will be too. I practice good time management, handle pressure calmly, and show them that taking care of mental health is a priority.</p>
+
+    <p>At the end of the day, a healthy and happy team delivers the best results! 🚀😃</p>
+  `,
+      codeSnippet: "",
+    example: false,
+    difficulty: "Easy",
+    technology: "Management",
+  }, {
+    id: 4020,
+    question: "How do you manage multiple client projects effectively?",
     answer:
-      "I always encourage open communication, so if someone is feeling burnt out, they can talk to me. I also make sure the team has a healthy work-life balance by setting realistic deadlines and taking regular breaks. Once, when a team was burning out, I called for a ‘no work day’ to relax and re-energize. Small gestures like that can make a huge difference.",
+      "I would create a priority list for both clients' tasks based on urgency and impact. Then, I would allocate specific time slots for each project in my schedule. After that, I would have an open discussion with any client if flexibility is required. Finally, I would break tasks into smaller, achievable goals to stay on track.",
     codeSnippet: "",
     example: false,
     difficulty: "Easy",
     technology: "Management",
   },
+
+  
 ];
