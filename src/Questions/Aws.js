@@ -22,7 +22,7 @@ export const dummyQuestionsAws = [
       difficulty: "Medium",
       answer: `
         <p>S3 offers various storage classes for different use cases:</p>
-        <table>
+        <table border="1">
           <tr><th>Storage Class</th><th>Use Case</th><th>Cost</th></tr>
           <tr><td><strong>S3 Standard</strong></td><td>Frequent access</td><td>$$</td></tr>
           <tr><td><strong>S3 Intelligent-Tiering</strong></td><td>Automatic tiering</td><td>$$$</td></tr>
@@ -101,7 +101,7 @@ export const dummyQuestionsAws = [
       difficulty: "Medium",
       answer: `
         <p><strong>S3 vs EBS:</strong></p>
-        <table>
+        <table border="1">
           <tr><th>Feature</th><th>S3</th><th>EBS</th></tr>
           <tr><td><strong>Type</strong></td><td>Object Storage</td><td>Block Storage</td></tr>
           <tr><td><strong>Use Case</strong></td><td>Static files, backups</td><td>Attached to EC2</td></tr>

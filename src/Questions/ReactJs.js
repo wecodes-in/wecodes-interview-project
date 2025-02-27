@@ -733,54 +733,7 @@ export const dummyQuestionsReactJs = [
     export { ControlledInput, UncontrolledInput };
   `
 },
-{
-  id: 1012,
-  question: 'What is the useRef hook used for in React?',
-  technology: 'React.js',
-  difficulty: 'Medium',
-  answer: `
-    <div>
-      <h2>useRef Hook in React</h2>
-      <p>The <strong>useRef</strong> hook is a special hook in React that allows you to persist values between renders without causing re-renders. It provides a way to reference DOM elements or store mutable values that do not trigger a re-render when changed.</p>
-      <p>useRef returns an object called a ref, which has a <strong>current</strong> property. This property can be assigned to a DOM element or hold any value that you want to persist. When the value of <strong>current</strong> changes, it does not cause the component to re-render, unlike state variables.</p>
-      <p>useRef is primarily used for:</p>
-      <ul>
-        <li>Accessing and manipulating DOM elements directly, such as focusing an input field or measuring the size of a DOM element.</li>
-        <li>Storing mutable values that you don’t want to trigger re-renders when updated, such as timers or previous values.</li>
-      </ul>
-      <p>In essence, useRef helps you interact with the DOM or maintain values without affecting the render cycle of your component.</p>
-    </div>
-  `,
-  example: true,
-  codeSnippet: `
-    import React, { useRef, useState } from 'react';
 
-    function Timer() {
-      const timerRef = useRef(null);
-      const [seconds, setSeconds] = useState(0);
-
-      const startTimer = () => {
-        timerRef.current = setInterval(() => {
-          setSeconds(prev => prev + 1);
-        }, 1000);
-      };
-
-      const stopTimer = () => {
-        clearInterval(timerRef.current);
-      };
-
-      return (
-        <div>
-          <h1>Timer: {seconds} seconds</h1>
-          <button onClick={startTimer}>Start</button>
-          <button onClick={stopTimer}>Stop</button>
-        </div>
-      );
-    }
-
-    export default Timer;
-  `
-},
 {
   id: 1023,
   question: 'What is the useRef hook used for in React?',
@@ -788,47 +741,88 @@ export const dummyQuestionsReactJs = [
   difficulty: 'Medium',
   answer: `
     <div>
-      <h2>useRef Hook in React</h2>
-      <p>The <strong>useRef</strong> hook is a special hook in React that allows you to persist values between renders without causing re-renders. It provides a way to reference DOM elements or store mutable values that do not trigger a re-render when changed.</p>
-      <p>useRef returns an object called a ref, which has a <strong>current</strong> property. This property can be assigned to a DOM element or hold any value that you want to persist. When the value of <strong>current</strong> changes, it does not cause the component to re-render, unlike state variables.</p>
-      <p>useRef is primarily used for:</p>
+      <p>The <strong>useRef</strong> hook in React is used to create a mutable reference that persists across renders without causing a re-render when updated. It is commonly used for:</p>
       <ul>
-        <li>Accessing and manipulating DOM elements directly, such as focusing an input field or measuring the size of a DOM element.</li>
-        <li>Storing mutable values that you don’t want to trigger re-renders when updated, such as timers or previous values.</li>
+        <li><strong>Accessing DOM Elements</strong> – You can use useRef to get a reference to a DOM element and manipulate it directly.</li>
+        <li><strong>Storing Mutable Values</strong> – Unlike state variables, changing a useRef value does not trigger a re-render.</li>
+        <li><strong>Persisting Values Across Renders</strong> – Since useRef does not cause re-renders, it is useful for storing values that need to persist, like timers or previous values.</li>
+        <li><strong>Keeping Track of Previous Values</strong> – You can use useRef to store the previous state of a component.</li>
       </ul>
-      <p>In essence, useRef helps you interact with the DOM or maintain values without affecting the render cycle of your component.</p>
+      <p><strong>Key Takeaways:</strong></p>
+      <ul>
+        <li>useRef is not for triggering re-renders.</li>
+        <li>It can be used to access and manipulate the DOM.</li>
+        <li>Useful for storing values that persist across renders without causing re-renders.</li>
+        <li>Helps in handling timers, event listeners, and previous values.</li>
+      </ul>
     </div>
   `,
   example: true,
   codeSnippet: `
-    import React, { useRef, useState } from 'react';
+  //1. Accessing DOM Elements – You can use useRef to get a reference to a DOM element and manipulate it directly.
+    
+  import { useRef, useEffect, useState } from 'react';
 
+    function InputFocus() {
+      const inputRef = useRef(null);
+      
+      useEffect(() => {
+        inputRef.current.focus(); // Focus the input when the component mounts
+      }, []);
+      
+      return <input ref={inputRef} type='text' />;
+    }
+
+  // 2. Storing Mutable Values – Unlike state variables, changing a useRef value does not trigger a re-render.
+    function Counter() {
+      const countRef = useRef(0);
+
+      const increment = () => {
+        countRef.current += 1;
+        console.log('Count:', countRef.current); // Logs updated value
+      };
+
+      return <button onClick={increment}>Increment</button>;
+    }
+//3. Persisting Values Across Renders – Since useRef does not cause re-renders, it is useful for storing values that need to persist, like timers or previous values.
     function Timer() {
-      const timerRef = useRef(null);
-      const [seconds, setSeconds] = useState(0);
+      const timerId = useRef(null);
 
       const startTimer = () => {
-        timerRef.current = setInterval(() => {
-          setSeconds(prev => prev + 1);
-        }, 1000);
+        timerId.current = setInterval(() => console.log('Running...'), 1000);
       };
 
       const stopTimer = () => {
-        clearInterval(timerRef.current);
+        clearInterval(timerId.current);
       };
 
       return (
         <div>
-          <h1>Timer: {seconds} seconds</h1>
           <button onClick={startTimer}>Start</button>
           <button onClick={stopTimer}>Stop</button>
         </div>
       );
     }
+//4. Keeping Track of Previous Values – You can use useRef to store the previous state of a component.
+    function PreviousValue() {
+      const [count, setCount] = useState(0);
+      const prevCountRef = useRef();
 
-    export default Timer;
+      useEffect(() => {
+        prevCountRef.current = count; // Store previous value
+      });
+
+      return (
+        <div>
+          <p>Current: {count}</p>
+          <p>Previous: {prevCountRef.current}</p>
+          <button onClick={() => setCount(count + 1)}>Increment</button>
+        </div>
+      );
+    }
   `
-},
+}
+,
 {
   id: 1025,
   question: 'What is React context, and how does it work?',
@@ -1092,14 +1086,14 @@ export const dummyQuestionsReactJs = [
   difficulty: 'Medium',
   answer: `
     <div>
-      <h2>React.memo vs useMemo in React</h2>
 
-      <h3>React.memo</h3>
-      <p><code>React.memo</code> is a higher-order component (HOC) used to memoize a component. It prevents unnecessary re-renders of a component when its props have not changed. This is useful when a component receives complex objects as props or when it renders frequently. React will only re-render the component if the props have changed, otherwise, it will reuse the previous render output.</p>
-      
-      <h3>useMemo</h3>
+       <h3><strong>useMemo</strong></h3>
       <p><code>useMemo</code> is a React hook used to memoize the result of an expensive function or calculation. It returns a memoized value that will only be recalculated if one of the dependencies changes. <code>useMemo</code> is often used for optimizing performance when dealing with costly calculations inside a component or when passing complex values as props to child components.</p>
 
+      <h3><strong>React.memo</strong></h3>
+      <p><code>React.memo</code> is a higher-order component (HOC) used to memoize a component. It prevents unnecessary re-renders of a component when its props have not changed. This is useful when a component receives complex objects as props or when it renders frequently. React will only re-render the component if the props have changed, otherwise, it will reuse the previous render output.</p>
+      
+   
       <h3>Key Differences</h3>
       <ul>
         <li><strong>Purpose:</strong> <code>React.memo</code> is used to prevent unnecessary re-renders of components, while <code>useMemo</code> is used to memoize a calculated value inside a component.</li>
@@ -1246,13 +1240,12 @@ export const dummyQuestionsReactJs = [
   difficulty: 'Medium',
   answer: `
     <div>
-      <h2>useMemo vs useCallback in React</h2>
       <p>Both <strong>useMemo</strong> and <strong>useCallback</strong> are React hooks that help with performance optimization by memoizing values or functions. However, they are used for different purposes.</p>
 
-      <h3>useMemo</h3>
+      <h3><strong>useMemo</strong></h3>
       <p>The <strong>useMemo</strong> hook is used to memoize a computed value or result of a function. It only recalculates the value when one of its dependencies changes. This is particularly useful when performing expensive calculations or operations to avoid recalculating them on every render.</p>
 
-      <h3>useCallback</h3>
+      <h3><strong>useCallback</strong></h3>
       <p>The <strong>useCallback</strong> hook, on the other hand, is used to memoize a function itself. It ensures that the same function reference is returned unless its dependencies change. This is helpful to prevent unnecessary re-renders of child components that rely on function references (like when passing functions as props).</p>
 
       <h3>Key Differences</h3>
@@ -3261,7 +3254,155 @@ export const dummyQuestionsReactJs = [
 
       export default FileUpload;
     `
-  }
+  },
+{
+  id: 1074,
+  question: '++What is the Context API in React and how does it work?',
+  technology: 'React.js',
+  difficulty: 'Medium',
+  answer: `
+    <div>
+      <p>The <strong>Context API</strong> in React is a built-in feature that allows you to share values like themes, authentication status, or user data across the component tree without prop drilling.</p>
+      <p>Context API provides a global state that can be accessed anywhere in the application without having to pass props manually through multiple components.</p>
+      <p><strong>How Context API Works:</strong></p>
+      <ol>
+        <li><strong>Create a Context:</strong> Using <code>React.createContext</code>.</li>
+        <li><strong>Provide the Context:</strong> Using a <code>Provider</code> to wrap components that need access to the context.</li>
+        <li><strong>Consume the Context:</strong> Using the <code>useContext</code> hook or the <code>Consumer</code> component.</li>
+      </ol>
+      <p>Here’s an example of implementing a Theme Context:</p>
+    </div>
+  `,
+  example: true,
+  codeSnippet: `
+    import React, { createContext, useState, useContext } from "react";
+
+    // 1. Create Context
+    const ThemeContext = createContext();
+
+    export const ThemeProvider = ({ children }) => {
+      const [theme, setTheme] = useState("light");
+
+      const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+      };
+
+      return (
+        <ThemeContext.Provider value={{ theme, toggleTheme }}>
+          {children}
+        </ThemeContext.Provider>
+      );
+    };
+
+    export default ThemeContext;
+
+    // 2. Consume Context in a component
+    const ThemeSwitcher = () => {
+      const { theme, toggleTheme } = useContext(ThemeContext);
+
+      return (
+        <div style={{ background: theme === "light" ? "#fff" : "#333", color: theme === "light" ? "#000" : "#fff", padding: "20px", textAlign: "center" }}>
+          <h2>Current Theme: {theme}</h2>
+          <button onClick={toggleTheme}>Toggle Theme</button>
+        </div>
+      );
+    };
+
+    export default ThemeSwitcher;
+
+    // 3. Wrap App with ThemeProvider
+    import React from "react";
+    import { ThemeProvider } from "./ThemeContext";
+    import ThemeSwitcher from "./ThemeSwitcher";
+
+    const App = () => {
+      return (
+        <ThemeProvider>
+          <ThemeSwitcher />
+        </ThemeProvider>
+      );
+    };
+
+    export default App;
+  `
+},
+{
+  id: 1075,
+  question: '++What is the difference between Redux and Context API in React?',
+  technology: 'React.js',
+  difficulty: 'Medium',
+  answer: `
+    <div>
+      <p>Redux and Context API are both used for state management in React applications, but they serve different purposes and have varying levels of complexity.</p>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Feature</th>
+            <th>Redux</th>
+            <th>Context API</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Purpose</strong></td>
+            <td>Used for complex state management with predictable state changes and middleware support.</td>
+            <td>Primarily for prop drilling elimination and lightweight state sharing.</td>
+          </tr>
+          <tr>
+            <td><strong>Performance</strong></td>
+            <td>Efficient with optimizations like useSelector and memoization but requires extra setup.</td>
+            <td>May cause unnecessary re-renders if not optimized properly.</td>
+          </tr>
+          <tr>
+            <td><strong>Boilerplate</strong></td>
+            <td>Requires actions, reducers, and a store, making it more complex.</td>
+            <td>Minimal setup, uses React's built-in API.</td>
+          </tr>
+       
+          <tr>
+            <td><strong>Scalability</strong></td>
+            <td>Highly scalable and suitable for large applications.</td>
+            <td>Best for small to medium applications with limited global state.</td>
+          </tr>
+          <tr>
+            <td><strong>Reactivity</strong></td>
+            <td>Uses a centralized store, ensuring predictable state updates.</td>
+            <td>Reacts to state changes but can cause unnecessary re-renders if not used with useMemo or useReducer.</td>
+          </tr>
+         
+          <tr>
+            <td><strong>Ease of Debugging</strong></td>
+            <td>Has powerful dev tools like Redux DevTools.</td>
+            <td>Lacks built-in debugging tools.</td>
+          </tr>
+          <tr>
+            <td><strong>Reusability</strong></td>
+            <td>Can reuse logic across different projects easily.</td>
+            <td>More tightly coupled with the component tree.</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>When to Use Redux:</strong></p>
+      <ul>
+        <li>You have a large-scale application with complex state management needs.</li>
+        <li>You need to debug state transitions extensively.</li>
+        <li>You require middleware for handling side effects (e.g., API calls).</li>
+        <li>You have multiple components requiring deep state management.</li>
+      </ul>
+      <p><strong>When to Use Context API:</strong></p>
+      <ul>
+        <li>You have a small to medium project with limited global state.</li>
+        <li>You want a lightweight solution without external dependencies.</li>
+        <li>You are mainly solving the prop-drilling problem.</li>
+      </ul>
+      <p><strong>Conclusion:</strong> If your app is simple and doesn’t require advanced state management, Context API is a good choice. However, for more complex apps with extensive state transitions, Redux is more suitable.</p>
+    </div>
+  `,
+  example: false,
+  codeSnippet: ``
+}
+
+
 
 
 

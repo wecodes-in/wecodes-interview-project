@@ -235,7 +235,7 @@ import { dummyQuestionsAws } from '../Questions/Aws';
             {/* Question Details Modal */}
             {selectedQuestion && (
               <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-                <div className="bg-white p-8 rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative">
+                <div className="bg-white p-8 rounded-xl shadow-2xl max-w-6xl w-full max-h-[90vh] overflow-y-auto relative">
                   <h2 className="text-2xl font-bold mb-4 text-indigo-800">{selectedQuestion.question}</h2>
                   <p className="mb-6 text-gray-700 leading-relaxed" dangerouslySetInnerHTML={{ __html: selectedQuestion.answer }} />
                   {selectedQuestion.example && (

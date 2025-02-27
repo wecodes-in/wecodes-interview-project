@@ -1083,7 +1083,7 @@ const greet = function() {
     answer:
       "<p>The value of `this` in JavaScript depends on how a function is called. It can behave differently in various contexts, such as in global scope, inside a function, in object methods, inside arrow functions, and event handlers. Below is an explanation of how `this` behaves in different scenarios:</p>" +
       "<ul>" +
-      "<li><strong>Global Context:</strong> In non-strict mode, `this` refers to the global object (e.g., `window` in browsers). In strict mode, `this` is `undefined`.</li>" +
+      "<li><strong>Global Context:</strong> In non-strict mode, `this` refers to the global object (e.g., `window` in browsers, {} in node). In strict mode, `this` is `undefined`.</li>" +
       "<li><strong>Inside a Function:</strong> In a regular function, `this` refers to the object that called the function. If the function is called directly (not as a method), `this` refers to the global object (or `undefined` in strict mode).</li>" +
       "<li><strong>Inside an Object Method:</strong> In an object method, `this` refers to the object the method is called on.</li>" +
       "<li><strong>Inside Arrow Functions:</strong> Arrow functions do not have their own `this`. Instead, they inherit the value of `this` from the surrounding (lexical) context in which they were defined.</li>" +
@@ -1290,16 +1290,22 @@ const greet = function() {
     question:
       "What is the difference between localStorage, sessionStorage, and cookies?",
     answer:
-      "<p><strong>localStorage</strong>: It stores data with no expiration time. Data is stored until explicitly deleted by the user or the browser. It is available across sessions and tabs (within the same origin). <code>localStorage</code> can store up to 5-10 MB of data depending on the browser.</p>" +
-      "<p><strong>sessionStorage</strong>: It stores data only for the duration of the page session. Data is lost when the page is closed or when the tab/browser is closed. It is available only in the current tab or window, not across multiple tabs or windows. <code>sessionStorage</code> can store up to 5 MB of data.</p>" +
-      "<p><strong>Cookies</strong>: Cookies are small pieces of data stored on the client-side and sent with every HTTP request to the server. They have an expiration date, and once the expiration time is reached, the cookie is deleted. Cookies are limited to 4 KB of data, and they can be accessed both client-side (via JavaScript) and server-side. They are mainly used for session management, tracking user activity, and authentication purposes.</p>" +
-      "<p><strong>Key differences:</strong></p>" +
-      "<ul>" +
-      "<li><code>localStorage</code> persists until manually deleted, whereas <code>sessionStorage</code> is cleared when the session ends (e.g., browser/tab closed).</li>" +
-      "<li><code>localStorage</code> and <code>sessionStorage</code> are client-side only and do not send data to the server, unlike cookies.</li>" +
-      "<li>Cookies are automatically sent to the server with every HTTP request, while <code>localStorage</code> and <code>sessionStorage</code> are not.</li>" +
-      "<li>Cookies are limited to 4 KB, while <code>localStorage</code> and <code>sessionStorage</code> can store up to 5-10 MB of data, depending on the browser.</li>" +
-      "</ul>",
+     ` <p><strong>localStorage</strong>: It stores data with no expiration time. Data is stored until explicitly deleted by the user or the browser. It is available across sessions and tabs (within the same origin). <code>localStorage</code> can store up to 5-10 MB of data depending on the browser.</p>" 
+      <p><strong>sessionStorage</strong>: It stores data only for the duration of the page session. Data is lost when the page is closed or when the tab/browser is closed. It is available only in the current tab or window, not across multiple tabs or windows. <code>sessionStorage</code> can store up to 5 MB of data.</p>
+      <p><strong>Cookies</strong>: Cookies are small pieces of data stored on the client-side and sent with every HTTP request to the server. They have an expiration date, and once the expiration time is reached, the cookie is deleted. Cookies are limited to 4 KB of data, and they can be accessed both client-side (via JavaScript) and server-side. They are mainly used for session management, tracking user activity, and authentication purposes.</p> 
+      <p><strong>Key differences:</strong></p> 
+      <ul> 
+      <li><code>localStorage</code> persists until manually deleted, whereas <code>sessionStorage</code> is cleared when the session ends (e.g., browser/tab closed).</li> 
+      <li><code>localStorage</code> and <code>sessionStorage</code> are client-side only and do not send data to the server, unlike cookies.</li> 
+      <li>Cookies are automatically sent to the server with every HTTP request, while <code>localStorage</code> and <code>sessionStorage</code> are not.</li> 
+      <li>Cookies are limited to 4 KB, while <code>localStorage</code> and <code>sessionStorage</code> can store up to 5-10 MB of data, depending on the browser.</li> 
+      </ul>
+      <br>
+     <strong> When to Use What?</strong>
+<p>localStorage → Best for long-term data storage (theme, language settings).</p>
+<p>sessionStorage → Best for temporary session-based data (form inputs, temporary login).</p>
+<p>cookies → Best for small data that needs to persist across sessions and be sent to the server (auth tokens, preferences).</p> `
+,
     codeSnippet:
       "<pre><code>// localStorage example\nlocalStorage.setItem('username', 'JohnDoe');\n\n// sessionStorage example\nsessionStorage.setItem('sessionID', '12345');\n\n// Cookie example\ndocument.cookie = 'user=JohnDoe; expires=Fri, 31 Dec 2025 23:59:59 GMT; path=/';</code></pre>",
     example: true,
@@ -2632,7 +2638,142 @@ This function automatically returns a Promise.
           .then(data => console.log(data))
           .catch(error => console.error(error));
       `
+    },
+    {
+      id: 313,
+      question: 'How can you create, read, and delete custom cookies using JavaScript?',
+      technology: 'JavaScript',
+      difficulty: 'Medium',
+      answer: `
+        <div>
+          <p>You can create, read, and delete cookies using pure JavaScript without any external library.</p>
+          <p>Here are the main functions to work with cookies:</p>
+          <ul>
+            <li><strong>setCookie</strong>: Creates a cookie with a specified expiration date.</li>
+            <li><strong>getCookie</strong>: Retrieves the value of a specified cookie.</li>
+            <li><strong>deleteCookie</strong>: Deletes a specified cookie.</li>
+            <li><strong>cookieExists</strong>: Checks if a cookie exists.</li>
+          </ul>
+        </div>
+      `,
+      example: true,
+      codeSnippet: `
+        // Set a Cookie
+        function setCookie(name, value, days) {
+          let expires = "";
+          if (days) {
+            const date = new Date();
+            date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+            expires = "; expires=" + date.toUTCString();
+          }
+          document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+        }
+        
+        // Get a Cookie
+        function getCookie(name) {
+          const cookies = document.cookie.split("; ");
+          for (let cookie of cookies) {
+            let [key, value] = cookie.split("=");
+            if (key === name) {
+              return decodeURIComponent(value);
+            }
+          }
+          return null;
+        }
+        
+        // Delete a Cookie
+        function deleteCookie(name) {
+          document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        }
+        
+        // Check if a Cookie Exists
+        function cookieExists(name) {
+          return getCookie(name) !== null;
+        }
+        
+        // Example Usage
+        setCookie("user", "John", 7);
+        console.log(getCookie("user")); // Output: "John"
+        console.log(cookieExists("user")); // true
+        deleteCookie("user");
+
+/*
+
+path=/ in Cookies (Meaning & Usage)
+When setting a cookie in JavaScript, path=/ means that the 
+cookie is available across the entire website (all pages and routes).
+
+Example: Setting a Cookie with path=/
+
+document.cookie = "user=John; path=/";
+✅ This cookie will be accessible on all pages of the website, e.g.:
+
+https://example.com/
+https://example.com/dashboard
+https://example.com/profile
+Without path=/
+If you don't specify path=, the cookie is only available on the current page's path.
+For example:
+
+
+document.cookie = "user=John; path=/dashboard";
+✅ Now, the cookie is only accessible on /dashboard and its subpaths:
+
+https://example.com/dashboard
+https://example.com/dashboard/settings
+❌ Not accessible on https://example.com/home
+Why Use path=/?
+Ensures the cookie is available site-wide.
+Used for authentication tokens and user preferences.
+Prevents duplicate cookies on different routes.
+
+*/
+
+
+       /*
+       Understanding encodeURIComponent and toUTCString in JavaScript
+1️⃣ encodeURIComponent()
+encodeURIComponent() is used to encode special characters in a URL or 
+query parameter to ensure they are transmitted correctly.
+
+
+const data = "Hello World!";
+const encodedData = encodeURIComponent(data);
+console.log(encodedData);
+Output:
+
+Hello%20World%21
+Spaces ( ) become %20
+! becomes %21
+Prevents issues when passing data in URLs
+🔹 Use Case: Encoding values for query parameters.
+
+
+const name = "John Doe";
+const url = ' https://example.com?name=$ {encodeURIComponent(name)}';
+console.log(url);
+Output:
+
+https://example.com?name=John%20Doe
+2️⃣ toUTCString()
+toUTCString() converts a date object into a UTC (Coordinated Universal Time) string.
+
+
+const date = new Date();
+console.log(date.toUTCString());
+Output:
+
+Fri, 28 Feb 2025 12:00:00 GMT
+🔹 Use Case: Often used when setting cookies with expiration dates.
+
+
+const expires = new Date();
+expires.setDate(expires.getDate() + 7); // Set expiry to 7 days later
+document.cookie = ' user=John; expires=$ {expires.toUTCString()}; path=/ ';
+       */ 
+      `
     }
+    
     
   
 ];
