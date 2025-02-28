@@ -3697,4 +3697,188 @@ Would you like to add JWT for secure authentication? 😊
             export default App;
   `,
   },
+
+  {
+    id: 1087,
+    question: "How do you set up multiple environments (SIT, UAT, Staging, Production) in a React app?",
+    technology: "React.js",
+    difficulty: "Medium",
+    answer: `
+    <p>In a React app, you can set up multiple environments using environment variables and <code>.env</code> files. This allows you to configure different settings for Development, SIT, UAT, Staging, and Production environments.</p>
+
+<h3>1. Create Environment Files</h3>
+<p>React supports environment-specific files using <code>.env</code> files. You can create different <code>.env</code> files for each environment:</p>
+
+<ul>
+  <li><code>.env.development</code> → Used for local development</li>
+  <li><code>.env.sit</code> → Used for SIT (System Integration Testing)</li>
+  <li><code>.env.uat</code> → Used for UAT (User Acceptance Testing)</li>
+  <li><code>.env.staging</code> → Used for Staging</li>
+  <li><code>.env.production</code> → Used for Production</li>
+</ul>
+
+<p>Each file should contain environment-specific variables:</p>
+
+    `,
+    example: true,
+    codeSnippet: `
+      // .env.development
+      REACT_APP_API_URL=https://dev-api.example.com
+      REACT_APP_MODE=development
+
+      // .env.sit
+      REACT_APP_API_URL=https://sit-api.example.com
+      REACT_APP_MODE=sit
+
+      // .env.uat
+      REACT_APP_API_URL=https://uat-api.example.com
+      REACT_APP_MODE=uat
+
+      // .env.staging
+      REACT_APP_API_URL=https://staging-api.example.com
+      REACT_APP_MODE=staging
+
+      // .env.production
+      REACT_APP_API_URL=https://api.example.com
+      REACT_APP_MODE=production
+   
+      **2. Load Environment Variables in Code**  
+      You can access these variables in your React app using \`process.env\`:
+
+      \`\`\`javascript
+      const API_URL = process.env.REACT_APP_API_URL;
+      console.log("API Base URL:", API_URL);
+      \`\`\`
+
+      **3. Define Scripts in package.json**  
+      Modify \`package.json\` to set up scripts for different environments:
+
+      \`\`\`json
+      "scripts": {
+        "start": "react-scripts start",
+        "start:sit": "env-cmd -f .env.sit react-scripts start",
+        "start:uat": "env-cmd -f .env.uat react-scripts start",
+        "start:staging": "env-cmd -f .env.staging react-scripts start",
+        "start:prod": "env-cmd -f .env.production react-scripts start",
+        "build:sit": "env-cmd -f .env.sit react-scripts build",
+        "build:uat": "env-cmd -f .env.uat react-scripts build",
+        "build:staging": "env-cmd -f .env.staging react-scripts build",
+        "build:prod": "env-cmd -f .env.production react-scripts build"
+      }
+      \`\`\`
+
+      **4. Install env-cmd**  
+      To manage .env files easily, install env-cmd:
+
+      \`\`\`sh
+      npm install env-cmd --save-dev
+      \`\`\`
+
+      **5. Running the App in Different Environments**  
+      To start the app in SIT:
+
+      \`\`\`sh
+      npm run start:sit
+      \`\`\`
+
+      To build the app for UAT:
+
+      \`\`\`sh
+      npm run build:uat
+      \`\`\`
+    `
+},
+{
+  id: 1088,
+  question: " (Vite) How do you set up multiple environments (SIT, UAT, Staging, Production) in a Vite app?",
+  technology: "React.js",
+  difficulty: "Medium",
+  answer: `
+    <p>In a Vite app, you can set up multiple environments using environment variables and .env files. Vite allows you to configure different settings for Development, SIT, UAT, Staging, and Production environments.</p>
+      
+      <h3>1. Create Environment Files</h3>
+      <p>Inside your project, create these .env files:</p>
+      
+      <pre><code>
+      # .env (Default)
+      VITE_API_URL=https://default-api.example.com
+      VITE_APP_MODE=default
+      
+      # .env.development
+      VITE_API_URL=https://dev-api.example.com
+      VITE_APP_MODE=development
+      
+      # .env.sit
+      VITE_API_URL=https://sit-api.example.com
+      VITE_APP_MODE=sit
+      
+      # .env.uat
+      VITE_API_URL=https://uat-api.example.com
+      VITE_APP_MODE=uat
+      
+      # .env.staging
+      VITE_API_URL=https://staging-api.example.com
+      VITE_APP_MODE=staging
+      
+      # .env.production
+      VITE_API_URL=https://api.example.com
+      VITE_APP_MODE=production
+      </code></pre>
+  `,
+  example: true,
+  codeSnippet: `
+    // src/App.jsx
+    import React from "react";
+
+    function App() {
+      const API_URL = import.meta.env.VITE_API_URL;
+      const APP_MODE = import.meta.env.VITE_APP_MODE;
+
+      return (
+        <div>
+          <h1>Vite Environment Setup</h1>
+          <p>Current Environment: <strong>{APP_MODE}</strong></p>
+          <p>API Base URL: <strong>{API_URL}</strong></p>
+        </div>
+      );
+    }
+
+    export default App;
+ 
+
+    <h3>3. Modify Scripts in package.json</h3>
+    Modify the scripts section to specify different environments:
+    
+   
+    "scripts": {
+      "dev": "vite",
+      "dev:sit": "vite --mode sit",
+      "dev:uat": "vite --mode uat",
+      "dev:staging": "vite --mode staging",
+      "dev:prod": "vite --mode production",
+      "build": "vite build",
+      "build:sit": "vite build --mode sit",
+      "build:uat": "vite build --mode uat",
+      "build:staging": "vite build --mode staging",
+      "build:prod": "vite build --mode production",
+      "preview": "vite preview"
+    }
+    
+    
+    <h3>4. Running the App in Different Environments</h3>
+    Start the app in SIT:
+    npm run dev:sit
+    
+    Start the app in UAT:
+    npm run dev:uat
+    
+    Build the app for Staging:
+    npm run build:staging
+    
+    Build the app for Production:
+    npm run build:prod
+  `
+}
+
+
 ];
