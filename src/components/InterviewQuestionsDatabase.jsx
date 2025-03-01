@@ -1,5 +1,7 @@
   import React, { useState } from 'react';
-  import { FaSearch, FaTimes, FaFilter, FaChevronDown, FaChevronUp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaEye, FaEyeSlash, FaHome, FaDatabase, FaQuestionCircle, FaBook, FaUserGraduate, FaAd } from 'react-icons/fa';
+
+  
+  import { FaSearch, FaTimes, FaFilter, FaChevronDown, FaChevronUp, FaEnvelope, FaPhone, FaMapMarkerAlt, FaEye, FaEyeSlash, FaHome, FaDatabase, FaQuestionCircle, FaBook, FaUserGraduate, FaAd ,FaMicrophone} from 'react-icons/fa';
   import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
   import { atomDark } from 'react-syntax-highlighter/dist/esm/styles/prism';
   import { dummyQuestionsReactJs } from '../Questions/ReactJs';
@@ -16,6 +18,8 @@ import { dummyQuestionsAws } from '../Questions/Aws';
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedTechnology, setSelectedTechnology] = useState('');
     const [selectedDifficulty, setSelectedDifficulty] = useState('');
+    const [isListening, setIsListening] = useState(false);
+
     const [selectedQuestion, setSelectedQuestion] = useState(null);
     const [isFiltersVisible, setIsFiltersVisible] = useState(false);
     const [showExample, setShowExample] = useState(false);
@@ -42,6 +46,35 @@ import { dummyQuestionsAws } from '../Questions/Aws';
     const toggleExample = () => {
       setShowExample(!showExample);
     };
+
+    // Function to handle voice recognition
+  const startListening = () => {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SpeechRecognition) {
+      alert("Your browser does not support speech recognition.");
+      return;
+    }
+
+    const recognition = new SpeechRecognition();
+    recognition.lang = "en-US";
+    recognition.start();
+    setIsListening(true);
+
+    recognition.onresult = (event) => {
+      const speechText = event.results[0][0].transcript;
+      setSearchQuery(speechText);
+      setIsListening(false);
+    };
+
+    recognition.onerror = (event) => {
+      console.error("Speech recognition error:", event.error);
+      setIsListening(false);
+    };
+
+    recognition.onend = () => {
+      setIsListening(false);
+    };
+  };
   
     const renderContent = () => {
       switch(activeSection) {
@@ -101,7 +134,15 @@ import { dummyQuestionsAws } from '../Questions/Aws';
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     <FaSearch className="absolute left-3 top-1/2 transform -translate-y-1/2 text-indigo-400" />
+                    
                   </div>
+                        {/* Voice Search Button */}
+        <button
+          className={`p-3 rounded-full transition-all duration-300 ${isListening ? 'bg-red-500' : 'bg-indigo-600'} text-white`}
+          onClick={startListening}
+        >
+          <FaMicrophone />
+        </button>
                   <button 
                     className="w-full sm:w-auto bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition-colors duration-300 flex items-center justify-center space-x-2"
                     onClick={toggleFilters}
