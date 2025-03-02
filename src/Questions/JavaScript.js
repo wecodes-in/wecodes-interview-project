@@ -1088,6 +1088,8 @@ const greet = function() {
       "<li><strong>Inside an Object Method:</strong> In an object method, `this` refers to the object the method is called on.</li>" +
       "<li><strong>Inside Arrow Functions:</strong> Arrow functions do not have their own `this`. Instead, they inherit the value of `this` from the surrounding (lexical) context in which they were defined.</li>" +
       "<li><strong>Event Handlers:</strong> In event handler functions, `this` refers to the element that triggered the event (unless you use arrow functions, where it will refer to the enclosing context).</li>" +
+      "<li><strong>Inside a Class:</strong> In a class, <code>this</code> refers to the instance of the class. However, inside a class method, if you use a function instead of an arrow function, you may need to explicitly bind <code>this</code> to access the instance.</li>" +
+  
       "</ul>" +
       "<p><strong>Example of Global Context:</strong></p>" +
       "<pre><code>console.log(this); // In browser, it will log the window object</code></pre>" +
@@ -1099,13 +1101,65 @@ const greet = function() {
       "<pre><code>const person = {\n  name: 'Alice',\n  greet: function() {\n    setTimeout(() => {\n      console.log(this.name); // 'this' refers to the person object due to lexical binding\n    }, 1000);\n  }\n};\nperson.greet();</code></pre>" +
       "<p><strong>Example of Event Handler Context:</strong></p>" +
       "<pre><code>const button = document.querySelector('button');\nbutton.addEventListener('click', function() {\n  console.log(this); // 'this' refers to the button element\n});</code></pre>",
-    codeSnippet:
-      "<pre><code>console.log(this); // In browser, it will log the window object</code></pre>" +
-      "<pre><code>function showThis() {\n  console.log(this); // In non-strict mode, this refers to the global object\n}\nshowThis();</code></pre>" +
-      "<pre><code>const person = {\n  name: 'Alice',\n  greet: function() {\n    console.log(this.name); // 'this' refers to the person object\n  }\n};\nperson.greet();</code></pre>" +
-      "<pre><code>const person = {\n  name: 'Alice',\n  greet: function() {\n    setTimeout(() => {\n      console.log(this.name); // 'this' refers to the person object due to lexical binding\n    }, 1000);\n  }\n};\nperson.greet();</code></pre>" +
-      "<pre><code>const button = document.querySelector('button');\nbutton.addEventListener('click', function() {\n  console.log(this); // 'this' refers to the button element\n});</code></pre>",
-    example: true,
+    codeSnippet:`
+    console.log(this); // In browser, it will log the window object
+
+function showThis() {
+  console.log(this); // In non-strict mode, this refers to the global object
+}
+showThis();
+
+const person = {
+  name: 'Alice',
+  greet: function() {
+    console.log(this.name); // 'this' refers to the person object
+  }
+};
+person.greet();
+
+const person = {
+  name: 'Alice',
+  greet: function() {
+    setTimeout(() => {
+      console.log(this.name); // 'this' refers to the person object due to lexical binding
+    }, 1000);
+  }
+};
+person.greet();
+
+const button = document.querySelector('button');
+button.addEventListener('click', function() {
+  console.log(this); // 'this' refers to the button element
+});
+
+Example of Class Context:
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    console.log(\`Hello, my name is \${this.name}\`); // 'this' refers to the class instance
+  }
+}
+const person1 = new Person('Alice');
+person1.greet();
+
+Example of Class with a Method Using setTimeout:
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+  greet() {
+    setTimeout(() => {
+      console.log(\`Hello, my name is \${this.name}\`); // Arrow function keeps 'this' bound to class instance
+    }, 1000);
+  }
+}
+const person1 = new Person('Alice');
+person1.greet();
+`,
+   
+      example: true,
     technology: "JavaScript",
     difficulty: "Medium"
   }

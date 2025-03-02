@@ -241,13 +241,11 @@ export const dummyQuestionsRedux = [
     "difficulty": "Medium",
     "answer": `
       <div>
-        <h2>Difference Between Redux Thunk and Redux-Saga</h2>
-  
-        <p>The key difference between Redux Thunk and Redux-Saga lies in how they handle asynchronous operations in a Redux application.</p>
+          <p>The key difference between Redux Thunk and Redux-Saga lies in how they handle asynchronous operations in a Redux application.</p>
   
         <h3>Redux Thunk</h3>
         <strong>What it is?</strong>
-        <p>A middleware that allows you to write async logic inside action creators using functions.</p>
+        <p>Redux Thunk allows  to write async logic inside action creators using functions.</p>
   
         <strong>How it works?</strong>
         <ul>
@@ -283,7 +281,7 @@ export const dummyQuestionsRedux = [
   
         <h3>Redux-Saga</h3>
         <strong>What it is?</strong>
-        <p>A middleware that handles side effects using generator functions.</p>
+        <p>Redux-Saga handles side effects using generator functions.</p>
   
         <strong>How it works?</strong>
         <ul>

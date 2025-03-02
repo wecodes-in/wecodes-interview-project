@@ -3878,7 +3878,163 @@ Would you like to add JWT for secure authentication? 😊
     Build the app for Production:
     npm run build:prod
   `
+},
+{
+  "id": 1090,
+  "question": "What is the difference between <>...</> (shorthand) and <React.Fragment>...</React.Fragment>?",
+  "technology": "React.js",
+  "difficulty": "Easy",
+  "answer": `
+    <div>
+      <h2>Difference between <>...</> (Shorthand) and <React.Fragment>...</React.Fragment></h2>
+      <div>
+        <p>In React, both <strong>shorthand <>...</></strong> and <strong><React.Fragment>...</React.Fragment></strong> are used to wrap multiple elements without adding extra nodes to the DOM.</p>
+        
+        <h3>Key Differences:</h3>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>&lt;&gt;...&lt;/&gt; (Shorthand)</th>
+            <th>&lt;React.Fragment&gt;...&lt;/React.Fragment&gt;</th>
+          </tr>
+          <tr>
+            <td><strong>Syntax</strong></td>
+            <td>Short and concise</td>
+            <td>Explicit and verbose</td>
+          </tr>
+          <tr>
+            <td><strong>Key Prop Support</strong></td>
+            <td>❌ Not supported</td>
+            <td>✅ Supported (useful for lists)</td>
+          </tr>
+          <tr>
+            <td><strong>Attributes</strong></td>
+            <td>❌ Cannot add attributes</td>
+            <td>✅ Can have attributes like <code>key</code></td>
+          </tr>
+          <tr>
+            <td><strong>Readability</strong></td>
+            <td>✅ Cleaner and simpler</td>
+            <td>❌ Slightly longer, but clear</td>
+          </tr>
+          <tr>
+            <td><strong>Browser Support</strong></td>
+            <td>✅ Fully supported (React 16.2+)</td>
+            <td>✅ Fully supported (React 16+)</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case</strong></td>
+            <td>When no key or attributes are needed</td>
+            <td>When key or other props are required</td>
+          </tr>
+        </table>
+
+        
+  `,
+  "example": true,
+  "codeSnippet": `
+    import React from 'react';
+
+    function Example() {
+      return (
+        <>
+          <h1>Hello</h1>
+          <p>Welcome to React</p>
+        </>
+      );
+    }
+
+    function ExampleWithFragment() {
+      return (
+        <React.Fragment key="uniqueKey">
+          <h1>Hello</h1>
+          <p>Welcome to React</p>
+        </React.Fragment>
+      );
+    }
+
+    export { Example, ExampleWithFragment };
+  `
+},
+{
+  "id": 1091,
+  "question": "What is the difference between React Fragment (<>...</> or <React.Fragment>...</React.Fragment>) and <div>...</div>?",
+  "technology": "React.js",
+  "difficulty": "Easy",
+  "answer": `
+    <div>
+      <h2>Difference Between React Fragment (<>...</> or <React.Fragment>...</React.Fragment>) and &lt;div&gt;...&lt;/div&gt;</h2>
+      <div>
+        <p>In React, both <strong>Fragments</strong> and <strong>&lt;div&gt; elements</strong> can be used to group multiple child elements. However, they serve different purposes.</p>
+        
+        <h3>Key Differences:</h3>
+        <table>
+          <tr>
+            <th>Feature</th>
+            <th>&lt;&gt;...&lt;/&gt; (Shorthand) / &lt;React.Fragment&gt;...&lt;/React.Fragment&gt;</th>
+            <th>&lt;div&gt;...&lt;/div&gt;</th>
+          </tr>
+          <tr>
+            <td><strong>Adds Extra DOM Element?</strong></td>
+            <td>❌ No (Does not add an extra node)</td>
+            <td>✅ Yes (Adds a &lt;div&gt; in the DOM)</td>
+          </tr>
+          <tr>
+            <td><strong>Key Prop Support</strong></td>
+            <td>✅ Only in &lt;React.Fragment&gt;</td>
+            <td>✅ Yes (Can have key)</td>
+          </tr>
+          <tr>
+            <td><strong>Can Have Attributes?</strong></td>
+            <td>✅ Only in &lt;React.Fragment&gt;</td>
+            <td>✅ Yes</td>
+          </tr>
+          <tr>
+            <td><strong>Styling & Layout</strong></td>
+            <td>❌ Cannot apply styles directly</td>
+            <td>✅ Can apply CSS styles, classes, etc.</td>
+          </tr>
+          <tr>
+            <td><strong>Semantic Impact</strong></td>
+            <td>✅ No effect on SEO & accessibility</td>
+            <td>✅ Can be useful for grouping & layout</td>
+          </tr>
+          <tr>
+            <td><strong>Use Case</strong></td>
+            <td>Wrapping elements without extra DOM</td>
+            <td>When an extra wrapper is needed for styling or structure</td>
+          </tr>
+        </table>
+
+        
+  `,
+  "example": true,
+  "codeSnippet": `
+    import React from 'react';
+
+    function ExampleFragment() {
+      return (
+        <>
+          <h1>Hello</h1>
+          <p>Welcome to React</p>
+        </>
+      );
+    }
+
+    function ExampleDiv() {
+      return (
+        <div>
+          <h1>Hello</h1>
+          <p>Welcome to React</p>
+        </div>
+      );
+    }
+
+    export { ExampleFragment, ExampleDiv };
+  `
 }
+
+
 
 
 ];
