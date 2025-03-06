@@ -733,6 +733,82 @@ export const dummyQuestionsRedux = [
       console.log(addToTotal(5)); // Output: 5
       console.log(addToTotal(5)); // Output: 10 (Different output for same input)
     `
-  }
+  },
+  {
+    id: 3051,
+    question: "What is Git’s “cherry-pick” command?",
+    answer:
+      "git cherry-pick is used to apply the changes from a specific commit from one branch to another branch. This is useful when you want to apply specific changes without merging the entire branch.",
+
+    example: true,
+    difficulty: "Easy",
+    technology: "Git",
+    codeSnippet: `### Example: Cherry-Picking a Commit from Another Branch  
+
+1. **Check Out to the Target Branch**  
+   Switch to the branch where you want to apply the commit.  
+   \`\`\`sh
+   git checkout feature-branch
+   \`\`\`  
+
+2. **Find the Commit Hash**  
+   List recent commits to find the commit you want to cherry-pick:  
+   \`\`\`sh
+   git log --oneline
+   \`\`\`  
+   Example output:  
+   \`\`\`
+   a1b2c3d Fix login issue  
+   d4e5f6g Add new API route  
+   h7i8j9k Improve UI design  
+   \`\`\`  
+   Let's say you want to apply the commit 'd4e5f6g' from another branch.  
+
+3. **Cherry-Pick the Commit**  
+   Run the following command:  
+   \`\`\`sh
+   git cherry-pick d4e5f6g
+   \`\`\`  
+   This will apply the changes from commit 'd4e5f6g' to the  feature-branch .
+
+4. **Cherry-Picking Multiple Commits**  
+   If you need to cherry-pick multiple commits at once:  
+   \`\`\`sh
+   git cherry-pick commit1 commit2 commit3
+   \`\`\`  
+   Or if you need a range of commits:  
+   \`\`\`sh
+   git cherry-pick commit1^..commit3
+   \`\`\`  
+   This will pick all commits from 'commit1' to 'commit3' (including both).
+
+5. **Cherry-Pick with Conflict Resolution**  
+   If there's a conflict, Git will stop and let you resolve it manually:  
+
+   - Fix conflicts in the affected files.  
+   - Mark them as resolved:  
+     \`\`\`sh
+     git add .
+     \`\`\`  
+   - Continue the cherry-pick process:  
+     \`\`\`sh
+     git cherry-pick --continue
+     \`\`\`  
+
+6. **Undo a Cherry-Pick**  
+   If you made a mistake and want to undo a cherry-pick before committing:  
+   \`\`\`sh
+   git cherry-pick --abort
+   \`\`\`  
+   If you already committed the cherry-pick, you can reset it:  
+   \`\`\`sh
+   git reset --hard HEAD~1
+   \`\`\`  
+
+### When to Use Cherry-Pick?  
+✅ Selectively apply changes from another branch.  
+✅ Avoid merging unwanted commits.  
+✅ Pick bug fixes without merging an entire feature branch.`,
+  },
   
 ];

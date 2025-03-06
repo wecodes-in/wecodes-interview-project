@@ -129,16 +129,7 @@ export const dummyQuestionsGit = [
     difficulty: "Easy",
     technology: "Git",
   },
-  {
-    id: 5013,
-    question: "What is Git’s “cherry-pick” command?",
-    answer:
-      "git cherry-pick is used to apply the changes from a specific commit from one branch to another branch. This is useful when you want to apply specific changes without merging the entire branch.",
-    codeSnippet: "",
-    example: false,
-    difficulty: "Easy",
-    technology: "Git",
-  },
+ 
   {
     id: 5014,
     question: "How do you revert a Git merge?",
@@ -199,4 +190,31 @@ export const dummyQuestionsGit = [
     difficulty: "Easy",
     technology: "Git",
   },
+  {
+    id: 5020,
+    question: "Step function",
+    answer:
+      "  Step Function is a service that helps you coordinate and manage multiple AWS services in a workflow. It allows you to define a series of steps where each step performs a task, such as calling a Lambda function, waiting, or making decisions.",
+    codeSnippet: "",
+    example: false,
+    difficulty: "Easy",
+    technology: "Git",
+  },
+
+  {
+    id: 5020,
+    question: "Lamda function",
+    answer:
+      "An AWS Lambda function is a serverless computing service that allows you to run code without managing servers. You just write your code, upload it to AWS Lambda, and it runs automatically when triggered.",
+    codeSnippet: "",
+    example: false,
+    difficulty: "Easy",
+    technology: "Git",
+  },
+
+
+
+
+
+
 ];
