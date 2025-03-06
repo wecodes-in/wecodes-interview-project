@@ -202,7 +202,7 @@ export const dummyQuestionsGit = [
   },
 
   {
-    id: 5020,
+    id: 5021,
     question: "Lamda function",
     answer:
       "An AWS Lambda function is a serverless computing service that allows you to run code without managing servers. You just write your code, upload it to AWS Lambda, and it runs automatically when triggered.",
